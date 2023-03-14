@@ -4,7 +4,7 @@ const Header = () => {
 
     return (
         <div className="head">
-            <h1>DUFS</h1>
+            <h1>DUFS LOGO</h1>
         </div>
     )
 }
