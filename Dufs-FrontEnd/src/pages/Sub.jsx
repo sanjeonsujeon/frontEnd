@@ -2,21 +2,23 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import Button from "../Component/Button";
 
-const Main = (props) => {
+
+const Sub = (props) => {
 
     const navigate = useNavigate();
 
     const play = () => {
-        navigate('/sub');
+        navigate('/');
     };
 
 	return (
 		<>
-			<h3>Main Page</h3>
+			<h3>Sub Page</h3>
 
-			<Button name="Move Sub Page" onClick={play} />
+			<Button name="Move Main Page" onClick={play} />
 		</>
 	);
 };
 
-export default Main;
+
+export default Sub;

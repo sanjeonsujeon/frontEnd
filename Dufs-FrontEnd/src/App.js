@@ -1,15 +1,14 @@
-import logo from './logo.svg';
+import Routers from './router/Routers'
 import './App.css';
-import Header from "./pages/Header"
-import Footer from "./pages/Footer"
-import Main from "./pages/Main"
+import Header from "./Pages/Header"
+import Footer from "./Pages/Footer"
 
 function App() {
   return (
     <div className="wrapper">
       <Header />
       <div className='contentWrapper'>
-        <Main />
+        <Routers />
       </div>
       <Footer />
     </div>
