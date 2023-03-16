@@ -13,7 +13,6 @@ const Main = (props) => {
 	return (
 		<>
 			<h3>Main Page</h3>
-
 			<Button name="Move Sub Page" onClick={play} />
 		</>
 	);

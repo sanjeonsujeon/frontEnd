@@ -1,27 +1,50 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 import SidebarItem from "./SidebarItem";
+
+const Side = styled.div`
+  display: flex;
+  border-right: 1px solid #e0e0e0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 20%;
+`
+const Menu = styled.div`
+  margin-top: 30px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  `
 
 function Sidebar() {
 
   const menus = [
-    { name: "대시보드", path: "/" },
-    { name: "메뉴1", path: "/"}
+    { name: "Main", path: "/" },
+    { name: "Sub", path: "/sub"}
   ];
 
   return (
-    <div className="sidebar">
-      {menus.map((menu, index) => {
-        return (
-          <Link to={menu.path} key={index}>
-            <SidebarItem
-              menu={menu}
-            />
-          </Link>
-        );
-      })}
-    </div>
+    <Side>
+      <Menu>
+        {menus.map((menu, index) => {
+          return (
+            <NavLink
+              exact
+              style={{color: "gray", textDecoration: "none"}}
+              to={menu.path}
+              key={index}
+              activeStyle={{color: "black"}}
+            >
+              <SidebarItem
+                menu={menu}
+              />
+            </NavLink>
+          );
+        })}
+      </Menu>
+    </Side>
   );
 }
 
