@@ -1,11 +1,20 @@
-import "./css/Header.css"
+import React from "react";
+import styled from "styled-components";
+
+const StyledHeader = styled.div`
+    background-color: #343439;
+    color: white;
+    display : flex;
+    padding : 0 0 0 20px;
+`
 
 const Header = () => {
 
     return (
-        <div className="head">
+        <StyledHeader>
             <h1>LOGO</h1>
-        </div>
+        </StyledHeader>
+            
     )
 }
 
