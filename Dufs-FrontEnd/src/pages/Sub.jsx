@@ -15,7 +15,7 @@ const Sub = (props) => {
 		<>
 			<h3>Sub Page</h3>
 
-			<Button name="Move Main Page" onClick={play} />
+			<Button onClick={play}>Move to Main Page</Button>
 		</>
 	);
 };

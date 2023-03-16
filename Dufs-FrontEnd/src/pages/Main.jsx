@@ -1,6 +1,14 @@
 import React from 'react';
+import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Button from "../Component/Button";
+
+const MainContent = styled.div`
+
+
+`
+
+
 
 const Main = (props) => {
 
@@ -12,8 +20,10 @@ const Main = (props) => {
 
 	return (
 		<>
-			<h3>Main Page</h3>
-			<Button name="Move Sub Page" onClick={play} />
+			<MainContent>
+				<div>Main</div>
+				<Button onClick={play}>Move to Sub Page</Button>
+			</MainContent>
 		</>
 	);
 };

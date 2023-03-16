@@ -1,17 +1,25 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import MainContent from '../Pages/Main';
-import SubContent from '../Pages/Sub';
+import styled from "styled-components";
+
+import Main from '../Pages/Main';
+import Sub from '../Pages/Sub';
 import Sidebar from "../Component/Sidebar";
 
-
+const Center = styled.div`
+  height: 92vh
+  display: flex;
+flex-direction: row;
+`
 function Routers () {
     return(
         <BrowserRouter>
-            <Sidebar />
-            <Routes>
-                <Route path="/*" element = {<MainContent/>} />
-                <Route path="/sub" element = {<SubContent/>} />
-            </Routes>
+            <Center>
+                <Sidebar />
+                <Routes>    
+                    <Route path="/*" element = {<Main/>} />
+                    <Route path="/sub" element = {<Sub/>} />
+                </Routes>
+            </Center>
         </BrowserRouter>
     );
 }
