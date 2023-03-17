@@ -18,9 +18,7 @@ const StyledButton = styled.button`
 
 function Button({ onClick, children }) {
     return (
-        <StyledButton onClick={onClick}>
-            {children}
-        </StyledButton>
+        <StyledButton onClick={onClick}>{children}</StyledButton>
     )
   }
   
