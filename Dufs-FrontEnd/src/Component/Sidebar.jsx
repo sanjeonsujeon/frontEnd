@@ -11,35 +11,34 @@ const Side = styled.div`
   justify-content: center;
   width: 20%;
 `
+
 const Menu = styled.div`
-  margin-top: 30px;
-  width: 200px;
+  margin: 30px 0 30px 0;
   display: flex;
   flex-direction: column;
-  `
+`
 
 function Sidebar() {
 
   const menus = [
     { name: "Main", path: "/" },
-    { name: "Sub", path: "/sub"}
+    { name: "Sub", path: "/sub"},
+    { name: "404", path: "/404"}
   ];
 
   return (
     <Side>
       <Menu>
-        {menus.map((menu, index) => {
+        {menus.map((menu, index) => {   
           return (
             <NavLink
               exact
-              style={{color: "gray", textDecoration: "none"}}
-              to={menu.path}
+              style={{color: "Black", textDecoration: "none"}}
+              to={menu.path} 
               key={index}
               activeStyle={{color: "black"}}
             >
-              <SidebarItem
-                menu={menu}
-              />
+              <SidebarItem menu={menu} />
             </NavLink>
           );
         })}

@@ -3,23 +3,19 @@ import styled from "styled-components";
 
 import Main from '../pages/Main';
 import Sub from '../pages/Sub';
+import P404 from "../pages/404";
 import Sidebar from "../Component/Sidebar";
 
-const Center = styled.div`
-    height: 92vh
-    display: inline-block;
-    flex-direction: row;
-`
+
 function Routers () {
     return(
         <BrowserRouter>
-            <Center>
                 <Sidebar />
                 <Routes>    
                     <Route path="/*" element = {<Main/>} />
                     <Route path="/sub" element = {<Sub/>} />
+                    <Route path="/404" element = {<P404/>} />
                 </Routes>
-            </Center>
         </BrowserRouter>
     );
 }
