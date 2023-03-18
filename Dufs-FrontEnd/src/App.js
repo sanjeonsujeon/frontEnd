@@ -1,8 +1,8 @@
 import Routers from './router/Routers'
 import styled from "styled-components"
 
-import Header from "./Pages/Header"
-import Footer from "./Pages/Footer"
+import Header from "./Component/Header"
+import Footer from "./Component/Footer"
 
 const Body = styled.div`
   display: flex;

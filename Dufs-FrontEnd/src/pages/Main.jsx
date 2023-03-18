@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Component/Button";
 
 const MainContent = styled.div`
-
-
+	display: inline-block;
 `
 
 
@@ -21,7 +20,7 @@ const Main = (props) => {
 	return (
 		<>
 			<MainContent>
-				<div>Main</div>
+				<h3>Main</h3>
 				<Button onClick={play}>Move to Sub Page</Button>
 			</MainContent>
 		</>

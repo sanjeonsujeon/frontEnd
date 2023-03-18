@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import styled from "styled-components";
 
-import Main from '../Pages/Main';
-import Sub from '../Pages/Sub';
+import Main from '../pages/Main';
+import Sub from '../pages/Sub';
 import Sidebar from "../Component/Sidebar";
 
 const Center = styled.div`
-  height: 92vh
-  display: flex;
-flex-direction: row;
+    height: 92vh
+    display: inline-block;
+    flex-direction: row;
 `
 function Routers () {
     return(
