@@ -8,14 +8,16 @@ const StyledHeader = styled.div`
     background-color: #343439;
     color: white;
     display : flex;
-    padding : 0 0 0 20px;
     height: 80px;
+    width: 100%;
+    
 `
 const Menu = styled.div`
     display: flex;
     flex-direction: row;
-
+    margin-left: auto;
 `
+
 
 function Header() {
 
@@ -26,13 +28,15 @@ function Header() {
 
     return (
         <StyledHeader>
-            <h1>LOGO</h1>
+            <h1>
+                <NavLink to="/" style={{color: "white", textDecoration: "none", padding : "0 0 0 20px"}}>LOGO</NavLink>
+            </h1>
             <Menu>
                 {menus.map((menu, index) => {
                     return(
                         <NavLink
                         exact
-                        style={{color: "white", textDecoration: "none"}}
+                        style={{color: "white", textDecoration: "none", margin: "10px 20px 10px 10px"}}
                         to={menu.path} 
                         key={index}
                         activeStyle={{color: "black"}}
