@@ -11,6 +11,7 @@ import Login from './pages/Login';
 import SignUp from './pages/SginUp';
 import Sidebar from './Component/Sidebar';
 import NotFound from './pages/NotFound';
+import MyPage from "./pages/MyPage";
 
 const Body = styled.div`
     display: flex;
@@ -31,12 +32,13 @@ function App() {
       <Body>
         <Sidebar />
         <Content>
-          <Routes>    
-            <Route path="/*" element = {<Main/>} />
+          <Routes>     
+            <Route path="/" element = {<Main/>} />
             <Route path="/sub" element = {<Sub/>} />
             <Route path="/login" element = {<Login/>} />
             <Route path="/sginup" element = {<SignUp/>} />
-            <Route path="/*" element={<NotFound />} />
+            <Route path="/mypage" element = {<MyPage/>} />
+            <Route path="*" element = {<NotFound />} />
           </Routes>
         </Content>
       </Body>

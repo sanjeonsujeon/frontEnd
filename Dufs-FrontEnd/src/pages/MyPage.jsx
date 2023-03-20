@@ -3,12 +3,15 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Button from "../Component/Button";
 
-const Nopage = styled.div`
+const MyPageContent = styled.div`
 	display: inline-block;
 `
 
-const NotFound = (props) => {
-	const navigate = useNavigate();
+
+
+const MyPage = (props) => {
+
+    const navigate = useNavigate();
 
     const play = () => {
         navigate('/');
@@ -16,14 +19,12 @@ const NotFound = (props) => {
 
 	return (
 		<>
-			<Nopage>
-				<h3>404</h3>
-				<p>페이지가 존재하지 않거나, 사용할수없는 페이지입니다.</p>
+			<MyPageContent>
+				<h3>My Page</h3>
 				<Button onClick={play}>Move to Main Page</Button>
-			</Nopage>
+			</MyPageContent>
 		</>
 	);
 };
 
-
-export default NotFound;
+export default MyPage;
