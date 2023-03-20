@@ -8,8 +8,8 @@ import Main from '../pages/Main';
 import Sub from '../pages/Sub';
 import Login from "../pages/Login";
 import SignUp from "../pages/SginUp";
-import P404 from "../pages/404";
 import Sidebar from "../Component/Sidebar";
+import NotFound from "../pages/NotFound";
 
 const Body = styled.div`
     display: flex;
@@ -33,9 +33,9 @@ function Routers () {
                         <Routes>    
                             <Route path="/*" element = {<Main/>} />
                             <Route path="/sub" element = {<Sub/>} />
-                            <Route path="/404" element = {<P404/>} />
                             <Route path="/login" element = {<Login/>} />
                             <Route path="/sginup" element = {<SignUp/>} />
+                            <Route path="/*" element={<NotFound />} />
                         </Routes>
                     </Content>
                 </Body>
