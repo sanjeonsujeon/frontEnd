@@ -5,7 +5,6 @@ import Button from "../Component/Button";
 
 const SubContent = styled.div`
 	display: inline-block;
-	flex-direction: row;
 `
 
 const Sub = (props) => {

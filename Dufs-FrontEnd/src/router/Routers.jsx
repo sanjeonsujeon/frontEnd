@@ -14,7 +14,11 @@ const Body = styled.div`
     flex-direction: row;
     height : auto;
     min-height: 100vh;
-    padding-bottom: 10vh;
+`
+const Content = styled.div`
+    text-align: center;
+    margin: auto;
+    flex: 1;
 `
 
 function Routers () {
@@ -23,11 +27,13 @@ function Routers () {
             <Header />
                 <Body>
                     <Sidebar />
+                    <Content>
                         <Routes>    
                             <Route path="/*" element = {<Main/>} />
                             <Route path="/sub" element = {<Sub/>} />
                             <Route path="/404" element = {<P404/>} />
-                        </Routes>    
+                        </Routes>
+                    </Content>
                 </Body>
             <Footer/>
         </BrowserRouter>

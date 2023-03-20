@@ -5,7 +5,6 @@ import Button from "../Component/Button";
 
 const Nopage = styled.div`
 	display: inline-block;
-	flex-direction: row;
 `
 
 const P404 = (props) => {
