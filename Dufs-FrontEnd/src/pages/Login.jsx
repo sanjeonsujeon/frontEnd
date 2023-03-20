@@ -35,8 +35,8 @@ const Login = (props) => {
 			<LoginContent>
                 <Form>
                     <h3>Login</h3>
-                    <input type="email" placeholder="ID" />
-                    <input type="password" placeholder="PW" />
+                    <input type="email" placeholder="Email" />
+                    <input type="password" placeholder="Password" />
                 </Form>
                 <Btn>
 				    <Button onClick={login}>Login</Button>
