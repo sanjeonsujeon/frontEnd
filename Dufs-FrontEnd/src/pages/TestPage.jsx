@@ -1,39 +1,49 @@
 import React from 'react';
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
-import Button from "../Component/Button";
+import { NavLink } from "react-router-dom";
+import SidebarItem from '../Component/SidebarItem';
 
 const DevPageContent = styled.div`
 	display: flex;
     flex-direction: column;
 `
-const Btn = styled.div`
+const Menu = styled.div`
+    margin: auto;
     display: flex;
     flex-direction: row;
 `
 
 const DevPage = (props) => {
 
-    const navigate = useNavigate();
+    const menus = [
+        { name: "메인 페이지", path: "/" },
+        { name: "서브 페이지", path: "/sub"},
+        { name: "게시판 페이지", path: "/board"},
+        { name: "로그인 페이지", path: "/login"},
+        { name: "회원가입 페이지", path: "/signup"},
+        { name: "마이 페이지", path: "/mypage"},
+        { name: "404 페이지", path: "/*"}
+      ];
 
-    const main = () => {navigate('/');};
-    const sub = () => {navigate('/sub');};
-    const login = () => {navigate('/login');};
-    const signup = () => {navigate('/signup');};
-    const mypage = () => {navigate('/mypage');};
-    const notfound = () => {navigate('*');};
 
 	return (
 		<DevPageContent>
 			<h1>Dev</h1>
-            <Btn>
-		    	<Button onClick={main}>메인 페이지</Button>
-                <Button onClick={sub}>서브 페이지</Button>
-                <Button onClick={login}>로그인 페이지</Button>
-                <Button onClick={signup}>회원가입 페이지</Button>
-                <Button onClick={mypage}>마이 페이지</Button>
-                <Button onClick={notfound}>404 페이지</Button>
-            </Btn>
+            <Menu>
+            {menus.map((menu, index) => {   
+                return (
+                    <NavLink
+                        exact
+                        style={{color: "Black", textDecoration: "none", margin: "10px"}}
+                        to={menu.path} 
+                        key={index}
+                        activeStyle={{color: "black"}}
+                    >
+                        <SidebarItem menu={menu} />
+                    </NavLink>
+                );
+            })}
+            </Menu>
 		</DevPageContent>
 	);
 };
