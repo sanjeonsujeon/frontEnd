@@ -2,19 +2,26 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import SidebarItem from "./SidebarItem";
+import config from "../config"
 
 const Side = styled.div`
   display: flex;
   border-right: 2px solid #e0e0e0;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  width: 20%;
+  width: 15%;
+  height: auto;
+  min-height: calc(100vh - ${config.HeaderHeight} - ${config.FooterHeight});
 `
 
 const Menu = styled.div`
-  margin: 30px 0 30px 0;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 30px 0 30px 0;
 `
 
 function Sidebar() {
