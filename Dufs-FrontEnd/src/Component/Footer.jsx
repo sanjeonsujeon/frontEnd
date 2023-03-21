@@ -5,7 +5,7 @@ const StyledFooter = styled.div`
     display: inline-block;
     background: #343439;
     color: #fff;
-    height: 10vh;
+    height: 80px;
     width: 100%;
     text-align: center;
 `
