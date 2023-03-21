@@ -16,12 +16,12 @@ const Menu = styled.div`
 const DevPage = (props) => {
 
     const menus = [
-        { name: "메인 페이지", path: "/" },
-        { name: "서브 페이지", path: "/sub"},
-        { name: "게시판 페이지", path: "/board"},
-        { name: "로그인 페이지", path: "/login"},
-        { name: "회원가입 페이지", path: "/signup"},
-        { name: "마이 페이지", path: "/mypage"},
+        { name: "메인", path: "/" },
+        { name: "서브", path: "/sub"},
+        { name: "게시판", path: "/board"},
+        { name: "로그인", path: "/login"},
+        { name: "회원가입", path: "/signup"},
+        { name: "마이페이지", path: "/mypage"},
         { name: "404 페이지", path: "/*"}
       ];
 

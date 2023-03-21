@@ -23,7 +23,8 @@ function Header() {
 
     const menus = [
         { name: "Login", path: "/login"},
-        { name: "Sign Up", path: "/sginup"}
+        { name: "Sign Up", path: "/sginup"},
+        { name: "Admin", path: "/devpage"}
     ];
 
     return (
