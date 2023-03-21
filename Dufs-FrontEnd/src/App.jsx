@@ -26,7 +26,6 @@ const Content = styled.div`
 `
 function App() {
   return (
-    <>
     <BrowserRouter>
       <Header />
       <Body>
@@ -44,7 +43,6 @@ function App() {
       </Body>
       <Footer/>
     </BrowserRouter>
-    </>
   );
 }
 

@@ -7,8 +7,6 @@ const MainContent = styled.div`
 	display: inline-block;
 `
 
-
-
 const Main = (props) => {
 
     const navigate = useNavigate();
@@ -20,8 +18,8 @@ const Main = (props) => {
 	return (
 		<>
 			<MainContent>
-				<h3>Main</h3>
-				<Button onClick={play}>Move to Sub Page</Button>
+				<h3>Main</h3>				
+				<Button onClick={play}>Move to Sub Page Button</Button>
 			</MainContent>
 		</>
 	);
