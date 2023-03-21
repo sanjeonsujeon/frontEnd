@@ -26,6 +26,7 @@ function Sidebar() {
     { name: "Login", path: "/login"},
     { name: "Sign Up", path: "/sginup"},
     { name: "My Page", path: "/mypage"},
+    { name: "Board", path: "/board"},
     { name: "Not Found", path: "*"}
   ];
 
