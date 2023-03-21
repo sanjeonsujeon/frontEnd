@@ -5,6 +5,7 @@ import Button from "../Component/Button";
 
 const Nopage = styled.div`
 	display: inline-block;
+	align-items: center;
 `
 
 const NotFound = (props) => {
