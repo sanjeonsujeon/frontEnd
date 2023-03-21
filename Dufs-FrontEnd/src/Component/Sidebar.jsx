@@ -8,7 +8,6 @@ const Side = styled.div`
   border-right: 2px solid #e0e0e0;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   width: 20%;
 `
 
@@ -23,10 +22,9 @@ function Sidebar() {
   const menus = [
     { name: "Main", path: "/" },
     { name: "Sub", path: "/sub"},
-    { name: "Login", path: "/login"},
-    { name: "Sign Up", path: "/sginup"},
     { name: "My Page", path: "/mypage"},
     { name: "Board", path: "/board"},
+    { name: "Dev Menu", path: "/devpage"},
     { name: "Not Found", path: "*"}
   ];
 

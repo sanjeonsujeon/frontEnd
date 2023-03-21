@@ -4,22 +4,26 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Component/Button";
 
 const LoginContent = styled.div`
-    display: flex;
-    flex-direction: column;
-`
-
-const Form = styled.div`
     width: 300px;
     height: 200px;
-    align-items: center;
     margin: auto;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
 `
 
-const Btn = styled.div`
+const InputForm = styled.div`
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+`
+const ButtonForm = styled.div`
     display: flex;
     flex-direction: row;
+`
+
+const OButton = styled(Button)`
+
 `
 
 const Login = (props) => {
@@ -37,15 +41,15 @@ const Login = (props) => {
 	return (
 		<>
 			<LoginContent>
-                <Form>
-                    <h2>Login</h2>
+                <h2>Login</h2>
+                <InputForm>
                     <input type="email" placeholder="Email" />
                     <input type="password" placeholder="Password" />
-                    <Btn>
-                        <Button onClick={login}>Login</Button>
-                        <Button onClick={signup}>Sign Up</Button>
-                    </Btn>
-                </Form>
+                </InputForm>
+                <ButtonForm>
+                    <OButton onClick={login}>Login</OButton>
+                    <OButton onClick={signup}>Sign Up</OButton>
+                </ButtonForm>
 			</LoginContent>
 		</>
 	);
