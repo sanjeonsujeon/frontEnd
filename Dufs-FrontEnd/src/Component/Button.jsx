@@ -8,7 +8,7 @@ const StyledButton = styled.button`
     padding: 15px 32px;
     border: 2px solid #555555;
     border-radius: 8px;
-    margin: 10px;
+    margin: auto;
 
     &:hover{
         background-color: #555555;

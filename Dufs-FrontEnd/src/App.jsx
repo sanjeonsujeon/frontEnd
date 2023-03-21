@@ -12,6 +12,8 @@ import SignUp from './pages/SginUp';
 import Sidebar from './Component/Sidebar';
 import NotFound from './pages/NotFound';
 import MyPage from "./pages/MyPage";
+import DevPage from "./pages/TestPage";
+import Board from "./pages/Board";
 
 const Body = styled.div`
     display: flex;
@@ -26,7 +28,6 @@ const Content = styled.div`
 `
 function App() {
   return (
-    <>
     <BrowserRouter>
       <Header />
       <Body>
@@ -34,17 +35,18 @@ function App() {
         <Content>
           <Routes>     
             <Route path="/" element = {<Main/>} />
+            <Route path="/devpage" element = {<DevPage/>} />
             <Route path="/sub" element = {<Sub/>} />
             <Route path="/login" element = {<Login/>} />
             <Route path="/sginup" element = {<SignUp/>} />
             <Route path="/mypage" element = {<MyPage/>} />
+            <Route path="/board" element = {<Board/>} />
             <Route path="*" element = {<NotFound />} />
           </Routes>
         </Content>
       </Body>
       <Footer/>
     </BrowserRouter>
-    </>
   );
 }
 

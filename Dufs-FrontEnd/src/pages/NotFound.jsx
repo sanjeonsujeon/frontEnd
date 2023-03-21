@@ -4,8 +4,12 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Component/Button";
 
 const Nopage = styled.div`
-	display: inline-block;
-	align-items: center;
+	display: flex;
+	flex-direction: column;
+`
+
+const Text = styled.div`
+	margin: 10px;
 `
 
 const NotFound = (props) => {
@@ -18,8 +22,8 @@ const NotFound = (props) => {
 	return (
 		<>
 			<Nopage>
-				<h3>404</h3>
-				<p>페이지가 존재하지 않거나, 사용할수없는 페이지입니다.</p>
+				<h1>404</h1>
+				<Text>페이지가 존재하지 않거나, 사용할수없는 페이지입니다.</Text>
 				<Button onClick={play}>Move to Main Page</Button>
 			</Nopage>
 		</>
