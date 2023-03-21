@@ -22,10 +22,8 @@ function Sidebar() {
   const menus = [
     { name: "Main", path: "/" },
     { name: "Sub", path: "/sub"},
-    { name: "Login", path: "/login"},
-    { name: "Sign Up", path: "/sginup"},
     { name: "My Page", path: "/mypage"},
-    { name: "Not Found", path: "*"}
+    { name: "Dev Menu", path: "/devpage"}
   ];
 
   return (
