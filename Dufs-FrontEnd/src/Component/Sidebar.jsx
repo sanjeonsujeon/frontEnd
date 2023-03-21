@@ -23,7 +23,9 @@ function Sidebar() {
     { name: "Main", path: "/" },
     { name: "Sub", path: "/sub"},
     { name: "My Page", path: "/mypage"},
-    { name: "Dev Menu", path: "/devpage"}
+    { name: "Board", path: "/board"},
+    { name: "Dev Menu", path: "/devpage"},
+    { name: "Not Found", path: "*"}
   ];
 
   return (
