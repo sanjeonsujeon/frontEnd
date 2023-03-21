@@ -24,7 +24,7 @@ function Sidebar() {
     { name: "Sub", path: "/sub"},
     { name: "Board", path: "/board"},
     { name: "My Page", path: "/mypage"},
-    { name: "Dev Menu", path: "/devpage"}
+    { name: "Admin", path: "/devpage"}
   ];
 
   return (
