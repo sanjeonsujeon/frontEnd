@@ -8,14 +8,18 @@ const LoginContent = styled.div`
     flex-direction: column;
 `
 
+const Form = styled.div`
+    width: 300px;
+    height: 200px;
+    align-items: center;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+`
+
 const Btn = styled.div`
     display: flex;
     flex-direction: row;
-`
-
-const Form = styled.div`
-    display: flex;
-    flex-direction: column;
 `
 
 const Login = (props) => {
@@ -27,21 +31,21 @@ const Login = (props) => {
     };
 
     const signup = () => {
-        navigate('/signup');
+        navigate('/sginup');
     };
 
 	return (
 		<>
 			<LoginContent>
                 <Form>
-                    <h3>Login</h3>
+                    <h2>Login</h2>
                     <input type="email" placeholder="Email" />
                     <input type="password" placeholder="Password" />
+                    <Btn>
+                        <Button onClick={login}>Login</Button>
+                        <Button onClick={signup}>Sign Up</Button>
+                    </Btn>
                 </Form>
-                <Btn>
-				    <Button onClick={login}>Login</Button>
-				    <Button onClick={signup}>Sign Up</Button>
-                </Btn>
 			</LoginContent>
 		</>
 	);
