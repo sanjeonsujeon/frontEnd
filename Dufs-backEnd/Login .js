@@ -1,3 +1,5 @@
+
+const { autoCommit } = require('oracledb');
 const oracledb = require('oracledb');
 
 
@@ -7,6 +9,16 @@ const dbConfig = {
     password: '112',
     connectString: '172.22.200.51:1521/XE'
   };
+
+const userData ={
+  id: 'rhs9705kr5',
+  pw: 'tmd1597',
+  name: '유승진',
+  st_number: '20201563',
+  gender: 'MALE'
+};
+
+
 //Oracle DB 쿼리 추가 코드
 async function insertUser(info) {
     let connection;
@@ -18,12 +30,18 @@ async function insertUser(info) {
         await connection.execute(
             `INSERT INTO USER_INFO(ID, PW, NAME, ST_NUMBER, GENDER)
             VALUES (:id, :pw, :name, :st_number, :gender)`,
-            [id, pw, name, st_number, gender]
+            [id, pw, name, st_number, gender]//,
+            // 오토커밋
+            // {autoCommit: true}
         );
+        //수동 커밋
+        await connection.execute('COMMIT');
 
         console.log(`User with ID ${id} inserted into USER_INFO table`);
     }catch (err){
         console.error(err.message);
+            // 트랜잭션 롤백
+        await connection.execute('ROLLBACK');
     }finally{
         if(connection){
             try{
@@ -34,7 +52,9 @@ async function insertUser(info) {
         }
     }
 }
+insertUser(userData);
 
+/*
 async function verifyLogin(id, pw) {
     let connection;
   
@@ -63,3 +83,4 @@ async function verifyLogin(id, pw) {
       }
     }
   }
+*/
