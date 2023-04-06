@@ -34,14 +34,14 @@ const Content = styled.div`
     margin: auto;
     width: 100%;
     height: auto;
-    min-height: calc(100vh - ${config.HeaderHeight} - ${config.FooterHeight});
+    min-height: calc(100vh - ${config.HeaderHeight});
 `
 
 const AppRoutes = styled.div`
   width: 85%;
   display: flex;
   height: auto;
-  justify-content: center; /* 수평 중앙 정렬 */
+  justify-content: center;
 `;
 
 function App() {
@@ -64,7 +64,7 @@ function App() {
           </Routes>
         </AppRoutes>
       </Content>
-      <Footer/>
+      <Footer />
     </BrowserRouter>
     </Wrapper>
   );

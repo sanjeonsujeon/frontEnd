@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import SidebarItem from "./SidebarItem";
+import SidebarItem from "./navItem/SidebarItem";
 import config from "../config"
 
 const Side = styled.div`
@@ -12,7 +12,7 @@ const Side = styled.div`
   align-items: center;
   width: 15%;
   height: auto;
-  min-height: calc(100vh - ${config.HeaderHeight} - ${config.FooterHeight});
+  min-height: calc(100vh - ${config.HeaderHeight});
 `
 
 const Menu = styled.div`
@@ -29,9 +29,7 @@ function Sidebar() {
   const menus = [
     { name: "Main", path: "/" },
     { name: "Sub", path: "/sub"},
-    { name: "Board", path: "/board"},
-    { name: "My Page", path: "/mypage"},
-    { name: "Dev Menu", path: "/devpage"}
+    { name: "Board", path: "/board"}
   ];
 
   return (
