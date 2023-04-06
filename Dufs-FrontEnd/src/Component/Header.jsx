@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import HeaderItem from "./HeaderItem";
+import HeaderItem from "./navItem/HeaderItem";
 
 const StyledHeader = styled.div`
     align-items: center;
@@ -24,6 +24,7 @@ function Header() {
     const menus = [
         { name: "Login", path: "/login"},
         { name: "Sign Up", path: "/sginup"},
+        { name: "My Page", path: "/mypage"},
         { name: "Admin", path: "/devpage"}
     ];
 

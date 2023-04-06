@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import SidebarItem from '../Component/SidebarItem';
+import SidebarItem from '../Component/navItem/SidebarItem';
 
 const DevPageContent = styled.div`
 	display: flex;
