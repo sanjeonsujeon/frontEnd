@@ -2,13 +2,14 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import HeaderItem from "./navItem/HeaderItem";
+import config from "../config";
 
 const StyledHeader = styled.div`
     align-items: center;
     background-color: #343439;
     color: white;
     display : flex;
-    height: 80px;
+    height: ${config.HeaderHeight};
     width: 100%;
     
 `
