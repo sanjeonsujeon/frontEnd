@@ -19,7 +19,7 @@ const Main = (props) => {
 		<>
 			<MainContent>
 				<h3>Main</h3>				
-				<Button onClick={play}>Move to Sub Page Button</Button>
+				<Button onClick={play}>Move to Sub Page</Button>
 			</MainContent>
 		</>
 	);
