@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import HeaderItem from "./navItem/HeaderItem";
+import HeaderItem from "./NavItem";
 import config from "../config";
 
 const StyledHeader = styled.div`
@@ -11,7 +11,6 @@ const StyledHeader = styled.div`
     display : flex;
     height: ${config.HeaderHeight};
     width: 100%;
-    
 `
 const Menu = styled.div`
     display: flex;
@@ -19,9 +18,7 @@ const Menu = styled.div`
     margin-left: auto;
 `
 
-
 function Header() {
-
     const menus = [
         { name: "Login", path: "/login"},
         { name: "Sign Up", path: "/sginup"},
@@ -50,7 +47,6 @@ function Header() {
                 })}
             </Menu>
         </StyledHeader>
-            
     )
 }
 

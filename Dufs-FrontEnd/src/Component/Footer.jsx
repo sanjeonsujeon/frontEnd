@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import FooterItem from "./navItem/FooterItem";
+import FooterItem from "./NavItem";
 import config from "../config";
 
 const StyledFooter = styled.div` 
@@ -23,9 +23,7 @@ const P = styled.p`
 `
 
 const Footer = () => {
-
     const menus = [
-        { name: "Privacy Policy", path: "/#"},
         { name: "About Us", path: "/aboutus"}
     ];
 

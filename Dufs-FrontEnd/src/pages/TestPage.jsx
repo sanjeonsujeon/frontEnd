@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
-import SidebarItem from '../Component/navItem/SidebarItem';
+import SidebarItem from '../Component/NavItem';
 
 const DevPageContent = styled.div`
 	display: flex;
@@ -14,7 +14,6 @@ const Menu = styled.div`
 `
 
 const DevPage = (props) => {
-
     const menus = [
         { name: "메인", path: "/" },
         { name: "서브", path: "/sub"},
@@ -25,7 +24,6 @@ const DevPage = (props) => {
         { name: "About Us", path: "/aboutus"},
         { name: "404 페이지", path: "/*"}
       ];
-
 
 	return (
 		<DevPageContent>

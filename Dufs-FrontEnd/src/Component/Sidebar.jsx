@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import SidebarItem from "./navItem/SidebarItem";
+import SidebarItem from "./NavItem";
 import config from "../config"
 
 const Side = styled.div`
@@ -25,7 +25,6 @@ const Menu = styled.div`
 `
 
 function Sidebar() {
-
   const menus = [
     { name: "Main", path: "/" },
     { name: "Sub", path: "/sub"},
