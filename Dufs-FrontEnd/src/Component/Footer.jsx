@@ -26,7 +26,7 @@ const Footer = () => {
 
     const menus = [
         { name: "Privacy Policy", path: "/#"},
-        { name: "About Us", path: "/#"}
+        { name: "About Us", path: "/aboutus"}
     ];
 
     return (
@@ -48,7 +48,7 @@ const Footer = () => {
             </Menu>
             <div>
                 <P>제작: 캡스톤디자인 산전수전팀</P>
-                <P>Copyright 2021. 산전수전 All pictures cannot be copied without permission. </P>
+                <P>Copyright 2023. 산전수전 All pictures cannot be copied without permission. </P>
             </div>
         </StyledFooter>
     )

@@ -15,6 +15,7 @@ import NotFound from './pages/NotFound';
 import MyPage from "./pages/MyPage";
 import DevPage from "./pages/TestPage";
 import Board from "./pages/Board";
+import AboutUs from "./pages/AboutUs";
 //import config
 import config from "./config";
 
@@ -60,6 +61,7 @@ function App() {
             <Route path="/sginup" element = {<SignUp/>} />
             <Route path="/mypage" element = {<MyPage/>} />
             <Route path="/board" element = {<Board/>} />
+            <Route path="/aboutus" element = {<AboutUs/>} />
             <Route path="*" element = {<NotFound />} />
           </Routes>
         </AppRoutes>

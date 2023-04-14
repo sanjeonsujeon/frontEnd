@@ -22,6 +22,7 @@ const DevPage = (props) => {
         { name: "로그인", path: "/login"},
         { name: "회원가입", path: "/signup"},
         { name: "마이페이지", path: "/mypage"},
+        { name: "About Us", path: "/aboutus"},
         { name: "404 페이지", path: "/*"}
       ];
 
