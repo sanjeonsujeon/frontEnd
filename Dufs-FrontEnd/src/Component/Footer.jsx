@@ -1,8 +1,12 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import FooterItem from "./NavItem";
 import config from "../config";
+
+{/*
+footer menu part
+import { NavLink } from "react-router-dom";
+import FooterItem from "./NavItem";
+ */}
 
 const StyledFooter = styled.div` 
     display: inline-block;
@@ -13,11 +17,14 @@ const StyledFooter = styled.div`
     margin: 0 auto;
     text-align: center;
 `
+{/*
+footer menu part
 const Menu = styled.div`
     display: flex;
     flex-direction: row;
     margin-left: 10px;
 `
+*/}
 
 const P = styled.p`
     margin: 10px 0 10px 20px;
@@ -25,13 +32,16 @@ const P = styled.p`
 `
 
 const Footer = () => {
+    {/*
+    footer menu part
     const menus = [
         { name: "About Us", path: "/aboutus"}
     ];
-
+    */}
     return (
         <StyledFooter>
             {/* 
+            footer menu part
             <Menu>
                 {menus.map((menu, index) => {
                     return(

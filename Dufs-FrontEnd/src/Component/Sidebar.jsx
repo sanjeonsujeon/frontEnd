@@ -6,11 +6,11 @@ import config from "../config"
 
 const Side = styled.div`
   display: flex;
-  border-right: 2px solid #e0e0e0;
+  border-left: 2px solid #e0e0e0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 15%;
+  width: 25%;
   height: auto;
   min-height: calc(100vh - ${config.HeaderHeight});
 `

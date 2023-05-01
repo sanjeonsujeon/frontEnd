@@ -4,6 +4,7 @@ import styled from "styled-components";
 import HeaderItem from "./NavItem";
 import config from "../config";
 
+/* gray #343439 */
 const StyledHeader = styled.div`
     align-items: center;
     background-color: #343439;
@@ -17,17 +18,24 @@ const Menu = styled.div`
     flex-direction: row;
     margin-left: auto;
 `
+const Headerdiv = styled.div`
+
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+`
 
 function Header() {
     const menus = [
         { name: "Login", path: "/login"},
         { name: "Sign Up", path: "/sginup"},
-        { name: "My Page", path: "/mypage"},
         { name: "Admin", path: "/devpage"}
     ];
 
     return (
         <StyledHeader>
+            <Headerdiv>
             <h1>
                 <NavLink to="/" style={{color: "white", textDecoration: "none", padding : "0 0 0 20px"}}>LOGO</NavLink>
             </h1>
@@ -46,6 +54,7 @@ function Header() {
                     );
                 })}
             </Menu>
+            </Headerdiv>
         </StyledHeader>
     )
 }

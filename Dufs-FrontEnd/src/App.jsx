@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Header from './Component/Header';
 import Footer from './Component/Footer';
 import Sidebar from './Component/Sidebar';
+import DevSidebar from './Component/DevMainSide';
 //import pages
 import Main from './pages/Main';
 import Sub from './pages/Sub';
@@ -34,12 +35,14 @@ const Content = styled.div`
     text-align: center;
     margin: auto;
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto ;
     height: auto;
     min-height: calc(100vh - ${config.HeaderHeight});
 `
-
+//  width: 75%;
 const AppRoutes = styled.div`
-  width: 85%;
+  width: 100%;
   display: flex;
   height: auto;
   justify-content: center;
@@ -51,7 +54,6 @@ function App() {
     <BrowserRouter>
       <Header />
       <Content>
-        <Sidebar />
         <AppRoutes>
           <Routes>     
             <Route path="/" element = {<Main/>} />
@@ -65,6 +67,7 @@ function App() {
             <Route path="*" element = {<NotFound />} />
           </Routes>
         </AppRoutes>
+        {/*<DevSidebar />*/}
       </Content>
       <Footer />
     </BrowserRouter>

@@ -4,8 +4,11 @@ import { useNavigate } from "react-router-dom";
 import Button from "../Component/Button";
 
 const SubContent = styled.div`
-	display: inline-block;
+	display: flex;
+	width: 100%;
+    margin: auto;
 `
+
 
 const Board = (props) => {
 
@@ -18,8 +21,7 @@ const Board = (props) => {
 	return (
 		<>
 			<SubContent>
-				<h3>Board Page</h3>
-				<Button onClick={play}>Move to Main Page</Button>
+
 			</SubContent>
 		</>
 	);
