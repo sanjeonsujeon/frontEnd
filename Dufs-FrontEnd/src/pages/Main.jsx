@@ -12,14 +12,14 @@ const Main = (props) => {
     const navigate = useNavigate();
 
     const play = () => {
-        navigate('/sub');
+        navigate('/board');
     };
 
 	return (
 		<>
 			<MainContent>
 				<h3>Main</h3>				
-				<Button onClick={play}>Move to Sub Page</Button>
+				<Button onClick={play}>Move to Board Page</Button>
 			</MainContent>
 		</>
 	);
