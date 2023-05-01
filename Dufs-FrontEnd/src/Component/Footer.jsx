@@ -6,10 +6,12 @@ import config from "../config";
 
 const StyledFooter = styled.div` 
     display: inline-block;
-    background: #343439;
-    color: white;
+    color: black;
     height: ${config.FooterHeight};
     width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
 `
 const Menu = styled.div`
     display: flex;
@@ -29,12 +31,13 @@ const Footer = () => {
 
     return (
         <StyledFooter>
+            {/* 
             <Menu>
                 {menus.map((menu, index) => {
                     return(
                         <NavLink
                         exact
-                        style={{color: "white", textDecoration: "none", margin: "10px 20px 10px 10px"}}
+                        style={{color: "black", textDecoration: "none", margin: "10px 20px 10px 10px"}}
                         to={menu.path} 
                         key={index}
                         activeStyle={{color: "black"}}
@@ -44,6 +47,7 @@ const Footer = () => {
                     );
                 })}
             </Menu>
+            */}
             <div>
                 <P>제작: 캡스톤디자인 산전수전팀</P>
                 <P>Copyright 2023. 산전수전 All pictures cannot be copied without permission. </P>
