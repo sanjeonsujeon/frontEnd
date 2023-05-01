@@ -12,43 +12,46 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 
 
-function createData(name, calories, fat, carbs, protein) {
-	return { name, calories, fat, carbs, protein };
+function createData(number, title, name, view, date) {
+	return { number, title, name, view, date };
   }
   
   const rows = [
-	createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-	createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-	createData('Eclair', 262, 16.0, 24, 6.0),
-	createData('Cupcake', 305, 3.7, 67, 4.3),
-	createData('Gingerbread', 356, 16.0, 49, 3.9),
+	createData(1,'1번째 게시글','17학번',5,'2023-05-01'),
+	createData(2,'2번째 게시글','22학번',7,'2023-04-28'),
+	createData(3,'3번째 게시글','20학번',23,'2023-04-24'),
+	createData(4,'4번째 게시글','19학번',31,'2023-04-22'),
+	createData(5,'5번째 게시글','15학번',67,'2023-04-19'),
+	createData(6,'6번째 게시글','23학번',142,'2023-04-18'),
+	createData(7,'7번째 게시글','18학번',45,'2023-04-18'),
+	createData(8,'8번째 게시글','12학번',79,'2023-04-15'),
+	createData(9,'9번째 게시글','17학번',64,'2023-04-14'),
+	createData(10,'10번째 게시글','16학번',57,'2023-04-12'),
   ];
 
-const SubContent = styled.div`
-	display: flex;
+  const BoardContent = styled.div`
+	display: inline-block;
 	width: 100%;
-    margin: auto;
+	max-width: 1200px;
+`
+const H1_Title = styled.h1`
+	margin: 0 0 50px 0;
 `
 
 const Board = (props) => {
-
-    const navigate = useNavigate();
-
-    const play = () => {
-        navigate('/sub');
-    };
-
 	return (
 		<>
+			<BoardContent>
+			<H1_Title>Smaple Board</H1_Title>
 			<TableContainer component={Paper}>
-				<Table sx={{ minWidth: 650 }} aria-label="simple table">
+				<Table sx={{ minWidth: 650 }} aria-label="Smaple Board">
 					<TableHead>
 						<TableRow>
-							<TableCell>Dessert (100g serving)</TableCell>
-							<TableCell align="right">Calories</TableCell>
-							<TableCell align="right">Fat&nbsp;(g)</TableCell>
-							<TableCell align="right">Carbs&nbsp;(g)</TableCell>
-							<TableCell align="right">Protein&nbsp;(g)</TableCell>
+							<TableCell align="left">번호</TableCell>
+							<TableCell align="center">제목</TableCell>
+							<TableCell align="right">글쓴이</TableCell>
+							<TableCell align="right">조회</TableCell>
+							<TableCell align="right">날짜</TableCell>
 						</TableRow>
 					</TableHead>
 					<TableBody>
@@ -57,18 +60,17 @@ const Board = (props) => {
 							key={row.name}
 							sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
 							>
-							<TableCell component="th" scope="row">
-								{row.name}
-							</TableCell>
-							<TableCell align="right">{row.calories}</TableCell>
-							<TableCell align="right">{row.fat}</TableCell>
-							<TableCell align="right">{row.carbs}</TableCell>
-							<TableCell align="right">{row.protein}</TableCell>
+							<TableCell component="th" scope="row">{row.number}</TableCell>
+							<TableCell align="center">{row.title}</TableCell>
+							<TableCell align="right">{row.name}</TableCell>
+							<TableCell align="right">{row.view}</TableCell>
+							<TableCell align="right">{row.date}</TableCell>
 							</TableRow>
 						))}
 					</TableBody>
 				</Table>
 			</TableContainer>
+			</BoardContent>
 		</>
 	);
 };
