@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 const BodyContent = styled.div`
 	display: flex;
@@ -34,8 +33,6 @@ const StyledImage = styled.img`
 `;
 
 const Main = (props) => {
-
-    const navigate = useNavigate();
 
 	return (
 		<>
