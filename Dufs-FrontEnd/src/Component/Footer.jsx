@@ -3,15 +3,16 @@ import styled from "styled-components";
 import config from "../config";
 
 
-
 const StyledFooter = styled.div` 
-    display: inline-block;
-    color: black;
+    display : flex;
+    background-color: #343439;
+    color: white;
     height: ${config.FooterHeight};
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    justify-content: center;
     text-align: center;
+    align-items: center;
+    margin: auto;
 `
 const P = styled.p`
     margin: 10px 0 10px 20px;

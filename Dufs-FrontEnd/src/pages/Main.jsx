@@ -1,26 +1,40 @@
 import React from 'react';
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Button from "../Component/Button";
 
-const MainContent = styled.div`
-	display: inline-block;
+const BodyContent = styled.div`
+
 `
+const MainBanner = styled.div`
+	margin-top: 20px;
+`
+const MainContent = styled.div`
 
+`
+const GalleryContent = styled.div`
+
+`
 const Main = (props) => {
 
     const navigate = useNavigate();
 
-    const play = () => {
-        navigate('/board');
-    };
-
 	return (
 		<>
-			<MainContent>
-				<h3>Main</h3>				
-				<Button onClick={play}>Move to Board Page</Button>
-			</MainContent>
+			<BodyContent>
+				<MainBanner>
+					<img src="https://via.placeholder.com/690x390" alt="샘플이미지"></img>
+					<img src="https://via.placeholder.com/490x390" alt="샘플이미지"></img>
+				</MainBanner>
+				<MainContent>
+					<img src="https://via.placeholder.com/335x390" alt="샘플이미지"></img>
+					<img src="https://via.placeholder.com/335x390" alt="샘플이미지"></img>					
+					<img src="https://via.placeholder.com/335x390" alt="샘플이미지"></img>
+				</MainContent>
+				<GalleryContent>
+					<img src="https://via.placeholder.com/230x170" alt="샘플이미지"></img>
+					<img src="https://via.placeholder.com/230x170" alt="샘플이미지"></img>
+				</GalleryContent>
+			</BodyContent>
 		</>
 	);
 };
