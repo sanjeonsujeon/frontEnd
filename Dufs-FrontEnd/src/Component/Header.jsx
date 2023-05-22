@@ -1,8 +1,10 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-import HeaderItem from "./NavItem";
+import HeaderItem from "./Header-NavItem";
 import config from "../config";
+import personImage from "../images/person.png";
+import searchImage from "../images/search.png";
 
 /* gray #343439 */
 const StyledHeader = styled.div`
@@ -19,7 +21,6 @@ const Menu = styled.div`
     margin-left: auto;
 `
 const Headerdiv = styled.div`
-
     display: flex;
     width: 100%;
     max-width: 1200px;
@@ -28,23 +29,22 @@ const Headerdiv = styled.div`
 
 function Header() {
     const menus = [
-        { name: "Login", path: "/login"},
-        { name: "Sign Up", path: "/sginup"},
-        { name: "Admin", path: "/devpage"}
+        { path: "/#", image: searchImage, alt: "search"},
+        { path: "/login", image: personImage, alt: "login"}
     ];
 
     return (
         <StyledHeader>
             <Headerdiv>
-            <h1>
-                <NavLink to="/" style={{color: "white", textDecoration: "none", padding : "0 0 0 20px"}}>LOGO</NavLink>
-            </h1>
+                <h1>
+                    <NavLink to="/" style={{color: "white", textDecoration: "none", margin: "auto"}}>LOGO</NavLink>
+                </h1>
             <Menu>
                 {menus.map((menu, index) => {
                     return(
                         <NavLink
                         exact
-                        style={{color: "white", textDecoration: "none", margin: "10px 20px 10px 10px"}}
+                        style={{color: "white", textDecoration: "none", margin: "auto 20px auto 0"}}
                         to={menu.path} 
                         key={index}
                         activeStyle={{color: "black"}}

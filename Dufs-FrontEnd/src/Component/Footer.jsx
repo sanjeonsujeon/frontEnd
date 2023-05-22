@@ -2,11 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import config from "../config";
 
-{/*
-footer menu part
-import { NavLink } from "react-router-dom";
-import FooterItem from "./NavItem";
- */}
+
 
 const StyledFooter = styled.div` 
     display: inline-block;
@@ -17,47 +13,15 @@ const StyledFooter = styled.div`
     margin: 0 auto;
     text-align: center;
 `
-{/*
-footer menu part
-const Menu = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin-left: 10px;
-`
-*/}
-
 const P = styled.p`
     margin: 10px 0 10px 20px;
     font-size: small;
 `
 
 const Footer = () => {
-    {/*
-    footer menu part
-    const menus = [
-        { name: "About Us", path: "/aboutus"}
-    ];
-    */}
+
     return (
         <StyledFooter>
-            {/* 
-            footer menu part
-            <Menu>
-                {menus.map((menu, index) => {
-                    return(
-                        <NavLink
-                        exact
-                        style={{color: "black", textDecoration: "none", margin: "10px 20px 10px 10px"}}
-                        to={menu.path} 
-                        key={index}
-                        activeStyle={{color: "black"}}
-                        >
-                            <FooterItem menu={menu} />
-                        </NavLink>
-                    );
-                })}
-            </Menu>
-            */}
             <div>
                 <P>제작: 캡스톤디자인 산전수전팀</P>
                 <P>Copyright 2023. 산전수전 All pictures cannot be copied without permission. </P>

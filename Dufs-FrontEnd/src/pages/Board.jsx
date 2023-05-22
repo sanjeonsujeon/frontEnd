@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { useNavigate } from "react-router-dom";
 
 
 import * as React from 'react';
@@ -44,10 +43,6 @@ function createData(number, title, name, view, date) {
 	max-width: 1200px;
   	margin: auto;
 `
-	const H1_Title = styled.h1`
-	margin: 0 0 50px 0;
-	text-align: center;
-`
 	const ButtonDiv = styled.div`
 	margin: 20px auto;
 	display: flex; 
@@ -58,7 +53,6 @@ const Board = (props) => {
 	return (
 		<>
 			<BoardContent>
-			<H1_Title>Smaple Board</H1_Title>
 			<TableContainer component={Paper}>
 				<Table sx={{ minWidth: 650 }} aria-label="Smaple Board">
 					<TableHead>

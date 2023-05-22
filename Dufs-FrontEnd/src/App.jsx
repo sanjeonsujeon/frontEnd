@@ -5,8 +5,6 @@ import styled from "styled-components";
 //import component
 import Header from './Component/Header';
 import Footer from './Component/Footer';
-import Sidebar from './Component/Sidebar';
-import DevSidebar from './Component/DevMainSide';
 //import pages
 import Main from './pages/Main';
 import Sub from './pages/Sub';
