@@ -65,7 +65,7 @@ const Board = (props) => {
 						<TableRow>
 							<TableCell align="left">번호</TableCell>
 							<TableCell align="center">제목</TableCell>
-							<TableCell align="right">글쓴이</TableCell>
+							<TableCell align="right">글쓴사람</TableCell>
 							<TableCell align="right">조회</TableCell>
 							<TableCell align="right">날짜</TableCell>
 						</TableRow>
