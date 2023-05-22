@@ -23,14 +23,15 @@ const Menu = styled.div`
 const Headerdiv = styled.div`
     display: flex;
     width: 100%;
-    max-width: 1200px;
+    height: 100%;
+    max-width: ${config.BodyWidth};
     margin: 0 auto;
 `
 
 function Header() {
     const menus = [
-        { path: "/#", image: searchImage, alt: "search"},
-        { path: "/login", image: personImage, alt: "login"}
+        { path: "/#", image: searchImage, alt:"search"},
+        { path: "/login", image: personImage, alt:"login"}
     ];
 
     return (

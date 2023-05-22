@@ -33,7 +33,7 @@ const Content = styled.div`
     text-align: center;
     margin: auto;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto ;
     height: auto;
     min-height: calc(100vh - ${config.HeaderHeight});
