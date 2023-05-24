@@ -7,14 +7,11 @@ import Header from './Component/Header';
 import Footer from './Component/Footer';
 //import pages
 import Main from './pages/Main';
-import Sub from './pages/Sub';
 import Login from './pages/Login';
 import SignUp from './pages/SginUp';
 import NotFound from './pages/NotFound';
-import MyPage from "./pages/MyPage";
 import DevPage from "./pages/TestPage";
 import Board from "./pages/Board";
-import AboutUs from "./pages/AboutUs";
 //import config
 import config from "./config";
 
@@ -56,16 +53,12 @@ function App() {
           <Routes>     
             <Route path="/" element = {<Main/>} />
             <Route path="/devpage" element = {<DevPage/>} />
-            <Route path="/sub" element = {<Sub/>} />
             <Route path="/login" element = {<Login/>} />
             <Route path="/sginup" element = {<SignUp/>} />
-            <Route path="/mypage" element = {<MyPage/>} />
             <Route path="/board" element = {<Board/>} />
-            <Route path="/aboutus" element = {<AboutUs/>} />
             <Route path="*" element = {<NotFound />} />
           </Routes>
         </AppRoutes>
-        {/*<DevSidebar />*/}
       </Content>
       <Footer />
     </BrowserRouter>

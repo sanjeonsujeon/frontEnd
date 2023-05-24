@@ -16,12 +16,9 @@ const Menu = styled.div`
 const DevPage = (props) => {
     const menus = [
         { name: "메인", path: "/" },
-        { name: "서브", path: "/sub"},
         { name: "게시판", path: "/board"},
         { name: "로그인", path: "/login"},
         { name: "회원가입", path: "/sginup"},
-        { name: "마이페이지", path: "/mypage"},
-        { name: "About Us", path: "/aboutus"},
         { name: "404 페이지", path: "/*"}
       ];
 
