@@ -53,13 +53,26 @@ const Main = (props) => {
 					/>
 				</MainBanner>
 				<MainContent>
-					<StyledImage
-						src="https://via.placeholder.com/360x390"
-						alt="샘플이미지"
-						width="360px"
-						height="390px"
-						style={{ marginRight: "20px" }}
-					/>
+					<ul>
+						<li>
+							<StyledImage
+								src="https://via.placeholder.com/360x390"
+								alt="샘플이미지"
+								width="360px"
+								height="390px"
+								style={{ marginRight: "20px" }}
+							/>
+						</li>
+						<li>
+							<StyledImage
+								src="https://via.placeholder.com/360x390"
+								alt="샘플이미지"
+								width="360px"
+								height="390px"
+								style={{ marginRight: "20px" }}
+							/>
+						</li>
+					</ul>
 					<StyledImage
 						src="https://via.placeholder.com/360x390"
 						alt="샘플이미지"
