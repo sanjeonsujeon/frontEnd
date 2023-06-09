@@ -17,7 +17,7 @@ const Main = (props) => {
 	const menus = [
         { name: "게시판", path: "/board"},
         { name: "로그인", path: "/login"},
-        { name: "회원가입", path: "/sginup"},
+        { name: "회원가입", path: "/signup"},
         { name: "404 페이지", path: "/*"}
       ];
 
