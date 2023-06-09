@@ -1,5 +1,4 @@
-// # main/frontend/src/pages/CreateBoard.jsx
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
 
@@ -36,7 +35,7 @@ const CreateBoard = () => {
             if(response.status >= 400){
                 alert("게시글 생성이 정상적으로 되지 않았습니다.");
             }
-            navigate("/", {});
+            navigate("/board", {});
         } catch (err) {
             console.log('CreateBoard/handleInput/err: ', err);
             resetInput();

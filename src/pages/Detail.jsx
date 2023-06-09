@@ -1,15 +1,15 @@
-// # frontend/src/pages/Detail.jsx
 import React, {useEffect, useState} from "react"
 import axios from 'axios';
 import { useNavigate, useLocation, Link } from "react-router-dom";
 
 
 const Detail = () => {
-    
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
+
     const location = useLocation();
     const navigate = useNavigate();
+
     const id = location.state.id; // 상세보기하려는 게시글의 id값
     console.log('Detail/id: ', id);
     const handleDeleteBtnClick = async (e) => {
@@ -23,9 +23,9 @@ const Detail = () => {
                 data: JSON.stringify(request_data)
             });
             console.log('Detail/handleDeleteBtnClick/response: ', response);
-            if(response.status== 204){
+            if(response.status === 204){
                 alert("게시글 삭제 완료!")
-                navigate("/", { });
+                navigate("/board", { });
             }
             else{
                 alert("게시글 삭제 실패!")
@@ -46,24 +46,20 @@ const Detail = () => {
             setContent(response.data.data.content);
         }
         getDetailBoard();
-    }, [])
+    }, [id])
+    
     return (
         <>
             <h1> {title} </h1>
             <h3> {content} </h3>
-            <Link
-                to = {"/update-board"}
-                state = {{
-                    id: id,
-                    title: title,
-                    content: content,
-                }}
-            > 수정 하기 | </Link>
+            <Link to = {"/updatepost"} state = {{
+                id: id,
+                title: title,
+                content: content,
+            }}
+            >수정 하기</Link>
             <input type="button" onClick={handleDeleteBtnClick} value="삭제 하기"/>
-            <Link
-                to = {"/"}
-                state = {{ }}
-            > | 목록 보기 </Link>
+            <Link to = {"/board"} state = {{ }}>목록 보기</Link>
         </>
     )
 }

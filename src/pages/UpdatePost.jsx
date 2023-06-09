@@ -3,7 +3,7 @@ import { React, useEffect, useState } from "react"
 import axios from 'axios';
 import { useNavigate, useLocation } from "react-router-dom";
 
-const UpdateBoard = () => {
+const UpdatePost = () => {
 
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
@@ -61,4 +61,4 @@ const UpdateBoard = () => {
     )
 }
 
-export default UpdateBoard;
+export default UpdatePost;
