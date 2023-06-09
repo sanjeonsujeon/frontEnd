@@ -12,7 +12,7 @@ const Main = (props) => {
 	return (
 		<>
 			<BodyContent>
-
+				메인
 			</BodyContent>
 		</>
 	);

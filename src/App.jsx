@@ -12,6 +12,7 @@ import SignUp from './pages/SginUp';
 import NotFound from './pages/NotFound';
 import DevPage from "./pages/TestPage";
 import Board from "./pages/Board";
+import CreateBoard from "./pages/CreateBoard";
 //import config
 import config from "./config";
 
@@ -56,6 +57,7 @@ function App() {
             <Route path="/login" element = {<Login/>} />
             <Route path="/sginup" element = {<SignUp/>} />
             <Route path="/board" element = {<Board/>} />
+            <Route path="/createboard" element = {<CreateBoard/>} />
             <Route path="*" element = {<NotFound />} />
           </Routes>
         </AppRoutes>
