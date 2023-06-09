@@ -1,55 +1,88 @@
-import React, {useState} from "react"
+import React, { useState } from "react";
 import axios from 'axios';
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+const Container = styled.div`
+    width: 800px;
+    margin: 0 auto;
+`;
+
+const Label = styled.label`
+    text-align: left;
+    display: block;
+`;
+
+const TitleInput = styled.input`
+    width: 100%;
+    font-size: 2rem;
+`;
+
+const Textarea = styled.textarea`
+    width: 100%;
+    height: 500px;
+    resize: none;
+`;
 
 const CreateBoard = () => {
-
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("");
-    let navigate = useNavigate(); // 다른 component 로 이동할 때 사용
+    const navigate = useNavigate();
 
-    const resetInput = () => {
-        setContent("");
-        setTitle("");
-        document.getElementById('input_title').value = '';
-        document.getElementById('textarea_content').value = '';
-    }
-    const handleInputClick = async (e) => {
-        document.getElementById('input_title').value = '';
-        document.getElementById('textarea_content').value = '';
-        console.log('writeBoard');
-        const request_data = {title: title, content: content};
-        console.log('req_data: ', request_data);
-        try{
-            let response = await axios({
-						                    method: 'post',//요청을 보냄
-						                    url: '/api/create-board',//어디 경로에 있는지
-						                    headers: {'Content-Type': 'application/json'},
-						                    data: JSON.stringify(request_data)
-						                    });
+    const handleInputClick = async () => {
+        const requestData = { title, content };
+
+        try {
+            const response = await axios.post('/api/create-board', requestData);
             console.log('writeBoard/response: ', response);
             console.log('writeBoard/response.status: ', response.status);
-            if(response.status >= 200 && response.status < 400){
+
+            if (response.status >= 200 && response.status < 400) {
                 alert("게시글이 정상적으로 생성되었습니다.");
-            }
-            if(response.status >= 400){
+            } else if (response.status >= 400) {
                 alert("게시글 생성이 정상적으로 되지 않았습니다.");
             }
-            navigate("/board", {});
-        } catch (err) {
-            console.log('CreateBoard/handleInput/err: ', err);
-            resetInput();
+
+            navigate("/board");
+        } catch (error) {
+            console.log('CreateBoard/handleInput/err: ', error);
         }
-    }
+    };
+
+    const handleTitleChange = (e) => {
+        setTitle(e.target.value);
+    };
+
+    const handleContentChange = (e) => {
+        setContent(e.target.value);
+    };
+
     return (
-        <>
-            <label>제목</label><br/>
-            <input id='input_title' type="text" placeholder="제목을 입력해주세요" onChange={(e) => setTitle(e.target.value) } value={title} /><br/><br/>
-            <label>내용</label><br/>
-            <textarea id='textarea_content' type="text" placeholder="내용을 입력해주세요" onChange={(e) => setContent(e.target.value) } value={content} /><br/>
-            <input type="button" value="게시글 생성" onClick={handleInputClick}/>
-        </>
-    )
-}
+        <Container>
+            <Label htmlFor="input_title">제목</Label>
+            <TitleInput
+                id="input_title"
+                type="text"
+                placeholder="제목을 입력해주세요"
+                onChange={handleTitleChange}
+                value={title}
+            />
+
+            <Label htmlFor="textarea_content">내용</Label>
+            <Textarea
+                id="textarea_content"
+                placeholder="내용을 입력해주세요"
+                onChange={handleContentChange}
+                value={content}
+            />
+
+            <input
+                type="button"
+                value="게시글 생성"
+                onClick={handleInputClick}
+            />
+        </Container>
+    );
+};
 
 export default CreateBoard;
