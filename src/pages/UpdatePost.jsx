@@ -100,8 +100,8 @@ const UpdatePost = () => {
     console.log('UpdateBoard/useEffect()');
     setTitle(oldTitle);
     setContent(oldContent);
-  }, []);
-
+  }, [oldContent, oldTitle]);
+  
   return (
     <Container>
       <HeadContainer>
