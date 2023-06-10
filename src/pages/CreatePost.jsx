@@ -15,21 +15,32 @@ const HeadContainer = styled.div`
 
 const TitleLabel = styled.h3`
   text-align: left;
+  font-size: 20px;
+  margin-bottom: 10px;
 `
 
 const ContentLabel = styled.h3`
   text-align: left;
+  font-size: 20px;
+  margin-bottom: 10px;
 `
 
 const TitleInput = styled.input`
   width: 100%;
-  font-size: 2rem;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 `
 
 const Textarea = styled.textarea`
   width: 100%;
-  height: 500px;
+  height: 300px;
   resize: none;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 `
 
 const Button = styled.input`
@@ -56,6 +67,15 @@ const CreatePost = () => {
   const handleInputClick = async () => {
     if (title.trim() === "" || content.trim() === "") {
       alert("제목과 내용을 모두 입력해주세요.");
+      return;
+    }
+
+    if (title.length > 16) {
+      alert("제목은 16글자 이하여야 합니다.");
+      return;
+    }    
+    if (content.length > 8000) {
+      alert("내용은 8000자 이하여야 합니다.");
       return;
     }
 
@@ -88,14 +108,14 @@ const CreatePost = () => {
 
   return (
     <Container>
-		<HeadContainer>
-            <TitleLabel>제목</TitleLabel>
-            <Button
-                type="button"
-                value="게시글 생성"
-                onClick={handleInputClick}
-            />
-		</HeadContainer>
+      <HeadContainer>
+        <TitleLabel>제목</TitleLabel>
+        <Button
+          type="button"
+          value="게시글 생성"
+          onClick={handleInputClick}
+        />
+      </HeadContainer>
       <TitleInput
         id="input_title"
         type="text"
