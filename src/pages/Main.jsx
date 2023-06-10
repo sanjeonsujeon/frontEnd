@@ -41,7 +41,7 @@ const Banner = styled.div`
   height: 100%;
   background-size: cover;
   background-position: center;
-  margin: 20px auto;
+  margin: auto;
   background-image: url(${sampleimg});
   display: flex;
   flex-direction: column;
@@ -86,6 +86,11 @@ const Main = () => {
             <Description>메인페이지는 도아가가 처리했으니 안심하라구!</Description>
             <Button onClick={handleMoveBoardClick}>게시판으로</Button>
           </Banner>
+		  <br /><br /><br /><br /><br /><br /><br />
+		  보다 효율적인 서비스 제공을 위해 서비스 점검을 진행합니다. 
+		  <br />
+		  작업 시간 동안 웹사이트 이용이 제한되므로 서비스 이용에 참고해주세요.
+		  <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
       </BodyContent>
     </>
   );
