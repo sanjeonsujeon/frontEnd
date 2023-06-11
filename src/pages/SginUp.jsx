@@ -52,93 +52,108 @@ const Title = styled.h2`
 `;
 
 const SignUp = () => {
-  const [user_id, setUserIdInput] = useState("");
-  const [pw, setPasswordInput] = useState("");
-  const [pwcheck, setPasswordCheck] = useState("");
-  const [name, setnameInput] = useState("");
-  const [st_number, setstudent_numberInput] = useState("");
+	const [userid, setUserIdInput] = useState("");
+	const [pw, setPasswordInput] = useState("");
+	const [pwcheck, setPasswordCheck] = useState("");
+	const [name, setnameInput] = useState("");
+	const [stnumber, setstudent_numberInput] = useState("");
 
-  const navigate = useNavigate();
+	const navigate = useNavigate();
 
-  const PwCheck = () => {
-    axios
-      .post("localhost:8080/check", {
-        PW: pw,
-        PWCK: pwcheck,
-      })
-      .then((response) => {
-        if ((response.status = 200)) {
-          return navigate("/Login");
-        }
-      })
-      .catch((error) => {});
-  };
+	const PwCheck = () => {
+		axios
+			.post("localhost:8080/check", {
+				PW: pw,
+				PWCK: pwcheck,
+			})
+			.then((response) => {
+				if ((response.status = 200)) {
+					return navigate("/Login");
+				}
+			})
+			.catch((error) => { });
+	};
 
-  const requestData = { user_id, pw, name, st_number };
-  const registeraxios = () => {
-    const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글 체크 정규식
-    const specialCharRegex = /[~`!@#$%^&*()+=\-[\]\\';,./{}|":<>?_]/; // 특수문자 체크 정규식
-    if (koreanRegex.test(user_id) || specialCharRegex.test(user_id) || koreanRegex.test(pw) || specialCharRegex.test(pw)) {
-      // 아이디에 한글이나 특수문자가 포함된 경우
-      return alert("아이디 또는 비밀번호에는 한글과 특수문자를 사용할 수 없습니다!");
-    }
+	const requestData = { userid, pw, name, stnumber };
+	const registeraxios = () => {
+		const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글 체크 정규식
+		const specialCharRegex = /[~`!@#$%^&*()+=\-[\]\\';,./{}|":<>?_]/; // 특수문자 체크 정규식
+		if (userid.trim() === "" || pw.trim() === "") {
+			// 아이디가 공란인 경우
+			return alert("아이디 또는 비밀번호를 입력해주세요!");
+		}
+		if (name.trim() === "") {
+			// 아이디가 공란인 경우
+			return alert("이름을 입력해주세요!");
+		}
+		if (stnumber.trim() === "") {
+			// 아이디가 공란인 경우
+			return alert("학번을 입력해주세요!");
+		}
+		if (
+			koreanRegex.test(userid) || specialCharRegex.test(userid) ||
+			koreanRegex.test(pw) || specialCharRegex.test(pw)
+		) {
+			// 아이디나 비밀번호에 한글이나 특수문자가 포함된 경우
+			return alert("아이디 또는 비밀번호에는 한글과 특수문자를 사용할 수 없습니다!");
+		}
 
-    axios
-      .post("http://172.22.200.51:8080/api/signup-pp", requestData)
-      .then((response) => {
-        if ((response.status = 200)) {
-          return alert("회원가입 완료"), navigate("/Login");
-        }
-      })
-      .catch((error) => {
-        return alert("회원가입에 실패했습니다!");
-      });
-  };
+		axios
+			.post("http://172.22.200.51:8080/api/signup-pp", requestData)
+			.then((response) => {
+				if ((response.status = 200)) {
+					return alert("회원가입 완료"), navigate("/Login");
+				}
+			})
+			.catch((error) => {
+				return alert("회원가입에 실패했습니다!");
+			});
+	};
 
-  return (
-    <SignUpContent>
-      <SignUpForm>
-        <Title>SignUp</Title>
-        <Label>아이디</Label>
-        <Input
-          type="text"
-          onChange={(e) => {
-            setUserIdInput(e.target.value);
-          }}
-        />
-        <Label>비밀번호</Label>
-        <Input
-          type="password"
-          onChange={(e) => {
-            setPasswordInput(e.target.value);
-          }}
-        />
-        <Label>비밀번호 재확인</Label>
-        <Input
-          type="password"
-          onChange={(e) => {
-            setPasswordCheck(e.target.value);
-          }}
-        />
-        <Label>이름</Label>
-        <Input
-          type="text"
-          onChange={(e) => {
-            setnameInput(e.target.value);
-          }}
-        />
-        <Label>학번</Label>
-        <Input
-          type="text"
-          onChange={(e) => {
-            setstudent_numberInput(e.target.value);
-          }}
-        />
-        <Button onClick={registeraxios}>가입완료</Button>
-        <Button onClick={PwCheck}>PwCheck Button</Button>
-      </SignUpForm>
-    </SignUpContent>
-  );
+	return (
+		<SignUpContent>
+			<SignUpForm>
+				<Title>SignUp</Title>
+				<Label>아이디</Label>
+				<Input
+					type="text"
+					onChange={(e) => {
+						setUserIdInput(e.target.value);
+					}}
+				/>
+				<Label>비밀번호</Label>
+				<Input
+					type="password"
+					onChange={(e) => {
+						setPasswordInput(e.target.value);
+					}}
+				/>
+				<Label>비밀번호 재확인</Label>
+				<Input
+					type="password"
+					onChange={(e) => {
+						setPasswordCheck(e.target.value);
+					}}
+				/>
+				<Label>이름</Label>
+				<Input
+					type="text"
+					onChange={(e) => {
+						setnameInput(e.target.value);
+					}}
+				/>
+				<Label>학번</Label>
+				<Input
+					type="text"
+					onChange={(e) => {
+						setstudent_numberInput(e.target.value);
+					}}
+				/>
+				<Button onClick={registeraxios}>가입완료</Button>
+				<Button onClick={PwCheck}>PwCheck Button</Button>
+			</SignUpForm>
+		</SignUpContent>
+	);
 };
 
 export default SignUp;
