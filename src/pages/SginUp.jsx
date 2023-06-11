@@ -49,13 +49,14 @@ const SignUp = () => {
 	const navigate = useNavigate();
 
 	const idCheck = () => {
-		axios
-			.post("", {
+		axios.post("http://localhost:8080/api/IDcheck", null, {
+			params: {
 				userid: userid
+			}
 			})
 			.then((response) => {
-				if ((response.status = 200)) {
-					return 0; // 중복 없을때 여기 출력
+				if ((response.status === 200)) {
+					return alert("쌉가능");
 				}
 			})
 			.catch((error) => {
@@ -139,6 +140,7 @@ const SignUp = () => {
 					}}
 				/>
 				<Button onClick={registeraxios}>가입완료</Button>
+				<Button onClick={idCheck}>가입</Button>
 			</SignUpForm>
 		</SignUpContent>
 	);
