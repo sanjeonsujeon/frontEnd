@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import config from "../config";
+import Button from "../Component/Button";
 
 const SignUpContent = styled.div`
   display: flex;
@@ -19,10 +19,8 @@ const SignUpForm = styled.div`
   background-color: #f0f0f0;
 `;
 
-const Label = styled.label`
-  margin-bottom: 5px;
-  text-align: left;
-  display: block;
+const Title = styled.h2`
+  margin-bottom: 20px;
 `;
 
 const Input = styled.input`
@@ -33,23 +31,12 @@ const Input = styled.input`
   border: 1px solid #ccc;
 `;
 
-const Button = styled.button`
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #f0f0f0;
+const Label = styled.label`
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
   color: #333;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #ccc;
-  }
-`;
-
-const Title = styled.h2`
-  margin-bottom: 20px;
+  font-weight: bold;
 `;
 
 const SignUp = () => {
@@ -72,7 +59,7 @@ const SignUp = () => {
 					return alert("쌉가능");
 				}
 			})
-			.catch((error) => { 
+			.catch((error) => {
 				return alert("중복된 ID 입니다.");
 			});
 	};
@@ -102,7 +89,7 @@ const SignUp = () => {
 		}
 
 		axios
-			.post(`http://${config.serverAddress}/api/signup-pp`, requestData)
+			.post(`/api/signup-pp`, requestData)
 			.then((response) => {
 				if ((response.status = 200)) {
 					return alert("회원가입 완료"), navigate("/Login");
