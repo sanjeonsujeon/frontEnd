@@ -11,14 +11,11 @@ const SginUpContent = styled.div`
 
 
 const SignUp = () => {
-	const [id, setIdInput] = useState("");
 	const [user_id, setUserIdInput] = useState("");
 	const [pw, setPasswordInput] = useState("");
 	const [pwcheck, setPasswordCheck] = useState("");
 	const [name, setnameInput] = useState("");
 	const [st_number, setstudent_numberInput] = useState("");
-	const [gender, setGender_Input] = useState("");
-	const [point, setPoint] = useState("");
    
 	const navigate = useNavigate();
 	const url = ""
@@ -44,7 +41,7 @@ const SignUp = () => {
 		  })
 	}
 
-	const requestData = {id,user_id, pw, name, st_number, gender, point}
+	const requestData = {user_id, pw, name, st_number}
 	const registeraxios = () => {
 		console.log("Registration Data:", requestData);
 		axios
@@ -121,38 +118,14 @@ const SignUp = () => {
 		  <label>Student_Number</label>
 		  <br/>
 		  <input
-			type="text"
+			type="number"
 			placeholder="name..."
 			onChange={(e) => {
 			  setstudent_numberInput(e.target.value);
 			}}
 			
 		  />
-		  </div>
-		  {/**/}<div className="signup_input">
-				<label>Gender</label>
-				<br />
-				<input
-					type="radio"
-					name="gender"
-					value="male"
-					checked={gender === "male"}
-					onChange={(e) => {
-						setGender_Input(e.target.value);
-					}}
-				/>
-				<label>Male</label>
-				<br />
-				<input
-					type="radio"
-					name="gender"
-					value="female"
-					checked={gender === "female"}
-					onChange={(e) => {
-						setGender_Input(e.target.value);
-					}}
-				/>
-				<label>Female</label>
+		  
 		  </div>
 		  <button onClick={registeraxios}>regist</button>
 		  <button onClick={play}>ppop</button>
