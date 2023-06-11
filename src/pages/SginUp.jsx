@@ -4,7 +4,49 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 
 const SignUpContent = styled.div`
-	display: inline-block;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+`
+
+const SignUpForm = styled.div`
+	width: 300px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	background-color: #f0f0f0;
+`
+
+const Label = styled.label`
+	margin-bottom: 5px;
+`
+
+const Input = styled.input`
+	width: 250px;
+	padding: 10px;
+	margin-bottom: 10px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+`
+
+const Button = styled.button`
+	width: 100%;
+	padding: 10px;
+	border-radius: 5px;
+	background-color: #f0f0f0;
+	color: #333;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+
+	&:hover {
+		background-color: #ccc;
+	}
+`
+
+const Title = styled.h2`
+  margin-bottom: 20px;
 `
 
 const SignUp = () => {
@@ -45,55 +87,41 @@ const SignUp = () => {
 
 	return (
 		<SignUpContent>
-			<div className="signup">
-				<div className="signup_input">
-					<label>UserID</label>
-					<br />
-					<input
-						type="text"
-						placeholder="username..."
-						onChange={(e) => { setUserIdInput(e.target.value); }}
-					/>
-				</div>
-				<div className="signup_input">
-					<label>Password</label>
-					<br />
-					<input
-						type="password"
-						placeholder="password..."
-						onChange={(e) => { setPasswordInput(e.target.value); }}
-					/>
-				</div>
-				<div className="signup_input">
-					<label>CheckPassword</label>
-					<br />
-					<input
-						type="password"
-						placeholder="passwordCheck"
-						onChange={(e) => { setPasswordCheck(e.target.value); }}
-					/>
-				</div>
-				<div className="signup_input">
-					<label>UserName</label>
-					<br />
-					<input
-						type="text"
-						placeholder="name..."
-						onChange={(e) => { setnameInput(e.target.value); }}
-					/>
-				</div>
-				<div className="signup_input">
-					<label>Student_Number</label>
-					<br />
-					<input
-						type="number"
-						placeholder="name..."
-						onChange={(e) => { setstudent_numberInput(e.target.value); }}
-					/>
-				</div>
-				<button onClick={registeraxios}>regist</button>
-				<button onClick={PwCheck}>CheckPW</button>
-			</div>
+			<SignUpForm>
+				<Title>회원가입</Title>
+				<Label>UserID</Label>
+				<Input
+					type="text"
+					placeholder="아이디"
+					onChange={(e) => { setUserIdInput(e.target.value); }}
+				/>
+				<Label>Password</Label>
+				<Input
+					type="password"
+					placeholder="비밀번호"
+					onChange={(e) => { setPasswordInput(e.target.value); }}
+				/>
+				<Label>CheckPassword</Label>
+				<Input
+					type="password"
+					placeholder="비밀번호 체크"
+					onChange={(e) => { setPasswordCheck(e.target.value); }}
+				/>
+				<Label>UserName</Label>
+				<Input
+					type="text"
+					placeholder="닉네임"
+					onChange={(e) => { setnameInput(e.target.value); }}
+				/>
+				<Label>Student_Number</Label>
+				<Input
+					type="text"
+					placeholder="학번"
+					onChange={(e) => { setstudent_numberInput(e.target.value); }}
+				/>
+				<Button onClick={registeraxios}>가입완료</Button>
+				<Button onClick={PwCheck}>PwCheck Button</Button>
+			</SignUpForm>
 		</SignUpContent>
 	);
 };
