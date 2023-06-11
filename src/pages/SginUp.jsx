@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Button from "../Component/Button";
 
-const SginUpContent = styled.div`
+const SignUpContent = styled.div`
 	display: inline-block;
 `
 

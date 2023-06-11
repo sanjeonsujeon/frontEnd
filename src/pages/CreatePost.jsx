@@ -62,6 +62,7 @@ const CreatePost = () => {
     const requestData = { title, content };
 
     try {
+      console.log("Registration Data:", requestData);
       const response = await axios.post('/api/create-board', requestData);
       console.log('writeBoard/response: ', response);
       console.log('writeBoard/response.status: ', response.status);
