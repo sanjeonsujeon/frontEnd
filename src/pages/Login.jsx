@@ -52,83 +52,83 @@ transition: background-color 0.3s ease;
 
 const Login = () => {
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const [UserID, setUserID] = useState("");
-  const [Password, setPassword] = useState("");
+    const [UserID, setUserID] = useState("");
+    const [Password, setPassword] = useState("");
 
 
-  const onSubmit = (event) => {
-    console.log("lll");
-    event.preventDefault();
-    axios
-      .post("/api/login", {
-        UserID: UserID,
-        Password: Password,
-      })
-      .then((res) => {
-        console.log(res);
-        localStorage.setItem("authorization", res.headers.authorization);
-        localStorage.setItem("refreshtoken", res.headers.refershtoken);
-        setInterval(onSilentRefresh, 60000);
-        onSilentRefresh();
-      })
-      .catch((Error) => {
-        console.log(Error)
-        alert("일치하는 회원 정보가 없습니다.");
-      })
-  }
+    const onSubmit = (event) => {
+      console.log("lll");
+        event.preventDefault();
+        axios
+          .post("/api/login", {
+            UserID: UserID,
+            Password: Password,
+          })
+          .then((res) => {
+            console.log(res);
+            localStorage.setItem("authorization",res.headers.authorization);
+            localStorage.setItem("refreshtoken", res.headers.refershtoken);
+             setInterval(onSilentRefresh, 60000);
+             onSilentRefresh();
+          })
+          .catch((Error) => {
+            console.log(Error)
+            alert("일치하는 회원 정보가 없습니다.");
+          })
+    }
 
-  const onSilentRefresh = () => {
-    axios.post("/api/oauth/token", {
-      authorization: localStorage.getItem("authorization"),
-      refershtoken: localStorage.getItem("refreshtoken")
-    })
-      .then((response) => {
-        console.log(response);
-        console.log("연장됨")
-        localStorage.setItem("authorization", response.headers.authorization);
-        localStorage.setItem("refreshtoken", response.headers.refreshtoken);
-        setInterval(onSilentRefresh, 60000);
-      })
-      .catch(error => {
-        alert("연장실패.");
-        console.log(error)
-        // ... 로그인 실패 처리
-        // 노력했다 알아서 추가하렴~ 오전 9시 2분 안잔지 22시간째
-      });
-  }
-  const login = () => {
-    navigate('/');
-  };
+    const onSilentRefresh = () => {
+        axios.post("/api/oauth/token", {
+            authorization: localStorage.getItem("authorization"),
+            refershtoken: localStorage.getItem("refreshtoken")
+        })
+            .then((response) => {
+                console.log(response);
+                console.log("연장됨")
+                localStorage.setItem("authorization",response.headers.authorization);
+                localStorage.setItem("refreshtoken",response.headers.refreshtoken);
+          setInterval(onSilentRefresh, 60000);
+        })
+        .catch(error => {
+          alert("연장실패.");
+          console.log(error)
+            // ... 로그인 실패 처리
+            // 노력했다 알아서 추가하렴~ 오전 9시 2분 안잔지 22시간째
+            });
+    }
+    const login = () => {
+        navigate('/');
+    };
 
-  const signup = () => {
-    navigate('/signup');
-  };
+    const signup = () => {
+        navigate('/signup');
+    };
 
-  return (
-    <>
-      <LoginContent>
-        <h2>Login</h2>
-        <InputForm>
-          <input
-            type="text"
-            placeholder="ID"
-            onChange={(e) => setUserID(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </InputForm>
-        <ButtonForm>
-          <HandleButton onClick={login}>Login</HandleButton>
-          <HandleButton onClick={signup}>Sign Up</HandleButton>
-        </ButtonForm>
-      </LoginContent>
-    </>
-  );
+	return (
+		<>
+			<LoginContent>
+                <h2>Login</h2>
+                <InputForm>
+                 <input
+                   type="text"
+                   placeholder="ID"
+                   onChange={(e) => setUserID(e.target.value)}
+                  />
+                   <input
+                   type="password"
+                   placeholder="Password"
+                   onChange={(e) => setPassword(e.target.value)}
+                  />
+                </InputForm>
+                <ButtonForm>
+                    <HandleButton onClick={login}>Login</HandleButton>
+                    <HandleButton onClick={signup}>Sign Up</HandleButton>
+                </ButtonForm>
+			</LoginContent>
+		</>
+	);
 
 };
 
