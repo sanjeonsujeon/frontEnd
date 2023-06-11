@@ -76,6 +76,13 @@ const SignUp = () => {
 
   const requestData = { user_id, pw, name, st_number };
   const registeraxios = () => {
+    const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/; // 한글 체크 정규식
+    const specialCharRegex = /[~`!@#$%^&*()+=\-[\]\\';,./{}|":<>?_]/; // 특수문자 체크 정규식
+    if (koreanRegex.test(user_id) || specialCharRegex.test(user_id) || koreanRegex.test(pw) || specialCharRegex.test(pw)) {
+      // 아이디에 한글이나 특수문자가 포함된 경우
+      return alert("아이디 또는 비밀번호에는 한글과 특수문자를 사용할 수 없습니다!");
+    }
+
     axios
       .post("http://172.22.200.51:8080/api/signup-pp", requestData)
       .then((response) => {
@@ -94,7 +101,7 @@ const SignUp = () => {
         <Title>SignUp</Title>
         <Label>아이디</Label>
         <Input
-          type="id"
+          type="text"
           onChange={(e) => {
             setUserIdInput(e.target.value);
           }}
