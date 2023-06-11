@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import config from "../config";
 
 const SignUpContent = styled.div`
   display: flex;
@@ -101,7 +100,7 @@ const SignUp = () => {
 		}
 
 		axios
-			.post(`http://${config.serverAddress}/api/signup-pp`, requestData)
+			.post(`/api/signup-pp`, requestData)
 			.then((response) => {
 				if ((response.status = 200)) {
 					return alert("회원가입 완료"), navigate("/Login");
