@@ -79,6 +79,20 @@ const UpdatePost = () => {
   };
 
   const handleInputClick = async (e) => {
+    if (title.trim() === "" || content.trim() === "") {
+      alert("제목과 내용을 모두 입력해주세요.");
+      return;
+    }
+
+    if (title.length > 16) {
+      alert("제목은 16글자 이하여야 합니다.");
+      return;
+    }    
+    if (content.length > 8000) {
+      alert("내용은 8000자 이하여야 합니다.");
+      return;
+    }
+    
     e.preventDefault();
     console.log('writeBoard');
     const requestData = { id, title, content };
