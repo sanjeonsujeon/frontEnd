@@ -11,19 +11,20 @@ const Container = styled.div`
 const HeadContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
 `
 
 const ButtonContainer = styled.div`
   margin-left: auto;
 `
+
 const BoardItem = styled.div`
-margin-bottom: 10px;
-padding: 10px;
-height: fit-content;
-background-color: #f0f0f0;
-border-radius: 5px;
-cursor: pointer;
+  margin-bottom: 10px;
+  padding: 10px;
+  height: fit-content;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
 `
 
 const Title = styled.h1`
@@ -113,7 +114,7 @@ const Detail = () => {
   return (
     <Container>
       <HeadContainer>
-          <Title>{title}</Title>
+        <Title>{title}</Title>
         <ButtonContainer>
           <LinkButton to={`/updatepost`} state={{ id: id, title: title, content: content }}>수정</LinkButton>
           <DeleteButton to="/board" onClick={handleDeleteBtnClick}>삭제</DeleteButton>
@@ -123,7 +124,6 @@ const Detail = () => {
       <BoardItem>
         <Content>{content}</Content>     
       </BoardItem>
-
     </Container>
   );
 };
