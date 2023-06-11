@@ -11,21 +11,34 @@ const Container = styled.div`
 const HeadContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: center; 
+  align-items: center;
 `
 
 const ButtonContainer = styled.div`
   margin-left: auto;
 `
 
+const BoardItem = styled.div`
+  margin-bottom: 10px;
+  padding: 10px;
+  height: fit-content;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+  cursor: pointer;
+`
+
 const Title = styled.h1`
   margin-bottom: 10px;
   text-align: left;
+  font-size: 24px;
+  color: #333;
 `
 
-const Content = styled.h3`
+const Content = styled.p`
   margin-bottom: 20px;
   text-align: left;
+  font-size: 18px;
+  color: #666;
 `
 
 const LinkButton = styled(Link)`
@@ -108,7 +121,9 @@ const Detail = () => {
           <LinkButton to={"/board"} state={{}}>목록 보기</LinkButton>
         </ButtonContainer>
       </HeadContainer>
-      <Content>{content}</Content>
+      <BoardItem>
+        <Content>{content}</Content>     
+      </BoardItem>
     </Container>
   );
 };

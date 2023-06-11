@@ -2,13 +2,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Button from "../Component/Button";
 
 const SignUpContent = styled.div`
 	display: inline-block;
 `
-
-
 
 const SignUp = () => {
 	const [user_id, setUserIdInput] = useState("");
