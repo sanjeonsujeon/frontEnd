@@ -47,7 +47,38 @@ transition: background-color 0.3s ease;
 }
 `
 
+function CrawlingTest() {
+  const [data, setData] = useState([]);
 
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  async function fetchData() {
+    try {
+      const response = await fetch('/api/crawling');
+      const jsonData = await response.json();
+      setData(jsonData);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  return (
+    <div>
+      <h1>Crawled Data</h1>
+      <ul>
+        {data.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+
+
+/*
 const CrawlingTest = () => {
   const [data, setData] = useState('');
 
@@ -68,9 +99,11 @@ const CrawlingTest = () => {
   return (
     <div>
       <h1>Data Display</h1>
-      <p>Title: {data.title}</p> {/* API로부터 받은 데이터 표시 */}
+      <p>h1: {data.title}</p> {/* API로부터 받은 h1 타입 데이터 표시 }
+      <br></br>
+      <p>p: {data.p}</p>{/*API로 받은 p타입 데이터 표시}
     </div>
   );
 };
-
+*/
 export default CrawlingTest;

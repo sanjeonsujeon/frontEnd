@@ -11,10 +11,7 @@ import Board from "./pages/Board";
 import CreatePost from "./pages/CreatePost";
 import BoardDetail from "./pages/Detail";
 import UpdatePost from "./pages/UpdatePost";
-import CrawlingTest from "./pages/CrawlingTest"
-import CrawlingTest1 from "./pages/CrawlingTest1"
-import CrawlingTest2 from "./pages/CrawlingTest2"
-import CrawlingTest3 from "./pages/CrawlingTest3";
+import CrawlingTest from "./pages/CrawlingTest";
 import config from "./config";
 
 const Wrapper = styled.div`
@@ -61,9 +58,6 @@ function App() {
               <Route path="/updatepost" element={<UpdatePost />} />
               <Route path="/createpost" element={<CreatePost />} />
               <Route path="/CrawlingTest" element={<CrawlingTest />} />
-              <Route path="/CrawlingTest1" element={<CrawlingTest1 />} />
-              <Route path="/CrawlingTest2" element={<CrawlingTest2 />} />
-              <Route path="/CrawlingTest3" element={<CrawlingTest3 />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AppRoutes>
