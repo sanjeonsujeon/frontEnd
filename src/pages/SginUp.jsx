@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
+import Button from "../Component/Button";
 
 const SignUpContent = styled.div`
   display: flex;
@@ -28,21 +29,6 @@ const Input = styled.input`
   margin-bottom: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
-`;
-
-const Button = styled.button`
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  background-color: #555;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-
-  &:hover {
-    background-color: #f0f0f0;
-  }
 `;
 
 const Label = styled.label`
