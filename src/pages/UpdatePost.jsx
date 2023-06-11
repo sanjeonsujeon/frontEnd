@@ -87,12 +87,12 @@ const UpdatePost = () => {
     if (title.length > 16) {
       alert("제목은 16글자 이하여야 합니다.");
       return;
-    }    
+    }
     if (content.length > 8000) {
       alert("내용은 8000자 이하여야 합니다.");
       return;
     }
-    
+
     e.preventDefault();
     console.log('writeBoard');
     const requestData = { id, title, content };
@@ -115,7 +115,7 @@ const UpdatePost = () => {
     setTitle(oldTitle);
     setContent(oldContent);
   }, [oldContent, oldTitle]);
-  
+
   return (
     <Container>
       <HeadContainer>
