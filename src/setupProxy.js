@@ -1,5 +1,4 @@
-import config from "../config";
-
+// # main/frontend/src/setupProxy.js
 const { createProxyMiddleware } = require('http-proxy-middleware');
 
 // "/api" 경로가 시작하면 프록시 미들웨어를 실행한다.
@@ -7,7 +6,7 @@ module.exports = function(app) {
   app.use(
     '/api',
     createProxyMiddleware({
-      target: 'http://${config.serverAddress}',
+      target: 'http://172.22.200.51:8080',
       changeOrigin: true
     })
   );

@@ -122,7 +122,7 @@ const Detail = () => {
         </ButtonContainer>
       </HeadContainer>
       <BoardItem>
-        <Content>{content}</Content>
+        <Content>{content}</Content>     
       </BoardItem>
     </Container>
   );
