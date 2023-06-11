@@ -11,21 +11,26 @@ const SginUpContent = styled.div`
 
 
 const SignUp = () => {
-    const navigate = useNavigate();
+	const [id, setIdInput] = useState("");
+	const [user_id, setUserIdInput] = useState("");
+	const [pw, setPasswordInput] = useState("");
+	const [pwcheck, setPasswordCheck] = useState("");
+	const [name, setnameInput] = useState("");
+	const [st_number, setstudent_numberInput] = useState("");
+	const [gender, setGender_Input] = useState("");
+	const [point, setPoint] = useState("");
+   
+	const navigate = useNavigate();
 	const url = ""
 
-	const [UserIdInput, setUserIdInput] = useState("");
-	const [passwordInput, setPasswordInput] = useState("");
-	const [passwodcheck, setPasswordCheck] = useState("");
-	const [nameInput, setnameInput] = useState("");
-	const [studnet_numberInput, setstudent_numberInput] = useState("");
-	const [gender, setGender_Input] = useState("");
+	
 
 	const PwCheck = () => {// 확인 후 가입 진행 코딩 필요
+		console.log("lll");
 		axios
-		  .post('localhost:8080/pwcheck',{
-			PW: passwordInput,
-			PWCK: passwodcheck,
+		  .post('localhost:8080/check',{
+			PW: pw,
+			PWCK: pwcheck,
 		  }).then((response) => {
 			console.log(response);
 			alert("회원가입 성공");
@@ -39,17 +44,11 @@ const SignUp = () => {
 		  })
 	}
 
-
+	const requestData = {id,user_id, pw, name, st_number, gender, point}
 	const registeraxios = () => {
-		console.log("lll");
+		console.log("Registration Data:", requestData);
 		axios
-		  .post('localhost:8080/signup', {
-			ID: UserIdInput,
-			PW: passwordInput,
-			NAME: nameInput,
-			ST_NUMBER: studnet_numberInput,
-			GENDER: gender
-		  })
+		  .post("http://localhost:8080/api/signup-pp", requestData)
 		  .then((response) => {
 			console.log(response);
 			alert("");
