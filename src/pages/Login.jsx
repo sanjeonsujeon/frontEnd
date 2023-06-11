@@ -2,9 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import axios from 'axios';
 import { useState } from 'react';
-import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Button from "../Component/Button";
 
 const LoginContent = styled.div`
   width: 300px;
@@ -125,8 +123,8 @@ const Login = () => {
                   />
                 </InputForm>
                 <ButtonForm>
-                    <OButton onClick={onSubmit}>Login</OButton>
-                    <OButton onClick={signup}>Sign Up</OButton>
+                    <HandleButton onClick={login}>Login</HandleButton>
+                    <HandleButton onClick={signup}>Sign Up</HandleButton>
                 </ButtonForm>
 			</LoginContent>
 		</>
