@@ -61,18 +61,19 @@ const SignUp = () => {
 
 	const navigate = useNavigate();
 
-	const PwCheck = () => {
+	const idCheck = () => {
 		axios
-			.post("localhost:8080/check", {
-				PW: pw,
-				PWCK: pwcheck,
+			.post("http://${config.serverAddress}/ {api 주소} ", {
+				userid: userid
 			})
 			.then((response) => {
 				if ((response.status = 200)) {
-					return navigate("/Login");
+					return 0; // 중복 없을때 여기 출력
 				}
 			})
-			.catch((error) => { });
+			.catch((error) => { 
+				return alert("중복된 ID 입니다.");
+			});
 	};
 
 	const requestData = { userid, pw, name, stnumber };
@@ -151,7 +152,6 @@ const SignUp = () => {
 					}}
 				/>
 				<Button onClick={registeraxios}>가입완료</Button>
-				<Button onClick={PwCheck}>PwCheck Button</Button>
 			</SignUpForm>
 		</SignUpContent>
 	);
