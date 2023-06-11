@@ -68,12 +68,16 @@ const Board = () => {
   const handleBoardItemClick = (id) => {
     navigate(`/detail/${id}`);
   };
+  const pagingClick = () =>{
+    navigate(`/board/paging`);
+  }
 
   return (
     <Container>
 		<HeadContainer>
 			<Title>게시판</Title>
 			<CreateButton onClick={handleCreateBoardClick}>글쓰기</CreateButton>
+      <CreateButton onClick={pagingClick}>페이징목록</CreateButton>
 		</HeadContainer>
       {data.map(board => (
         <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
