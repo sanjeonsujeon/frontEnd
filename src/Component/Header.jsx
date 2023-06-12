@@ -36,7 +36,8 @@ const Headerdiv = styled.div`
 const Logo = styled.h1`
   color: white;
   text-decoration: none;
-  margin: auto 0;
+  margin: auto;
+  margin-left : 20px;
 `;
 
 function Header() {
