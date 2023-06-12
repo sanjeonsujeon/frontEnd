@@ -46,6 +46,11 @@ transition: background-color 0.3s ease;
   background-color: #ccc;
 }
 `
+const Pagenum = styled.div`
+  width: 500px;
+  height: 100Px;
+  margin: auto;
+`
 
 const Board = () => {
   const navigate = useNavigate();
@@ -80,6 +85,9 @@ const Board = () => {
           <BoardTitle>{board.title}</BoardTitle>
         </BoardItem>
       ))}
+      <Pagenum>
+        {/* 이곳에 게시판 페이지 번호 들어갑니다.*/}
+      </Pagenum>
       {/*
       {Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index).map((page) => (
         <React.Fragment key={page}>
