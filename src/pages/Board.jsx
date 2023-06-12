@@ -71,15 +71,26 @@ const Board = () => {
 
   return (
     <Container>
-		<HeadContainer>
-			<Title>게시판</Title>
-			<CreateButton onClick={handleCreateBoardClick}>글쓰기</CreateButton>
-		</HeadContainer>
+      <HeadContainer>
+        <Title>게시판</Title>
+        <CreateButton onClick={handleCreateBoardClick}>글쓰기</CreateButton>
+      </HeadContainer>
       {data.map(board => (
         <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
           <BoardTitle>{board.title}</BoardTitle>
         </BoardItem>
       ))}
+      {/*
+      {Array.from({ length: endPage - startPage + 1 }, (_, index) => startPage + index).map((page) => (
+        <React.Fragment key={page}>
+          {page !== nowPage ? (
+            <a href={`/board?page=${page - 1}`}>{page}</a>
+          ) : (
+            <strong style={{ color: 'red' }}>{page}</strong>
+          )}
+        </React.Fragment>
+      ))}
+      */}
     </Container>
   );
 };
