@@ -39,6 +39,28 @@ const Label = styled.label`
   font-weight: bold;
 `
 
+const FlexContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
+
+const IdCheckButton = styled.button`
+	width: 80px;
+	padding: 3px;
+	border-radius: 5px;
+	background-color: #555;
+	font-size: 12px;
+	color: #fff;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
+	margin-left: auto;
+	
+	&:hover {
+	background-color: #2f2f30;
+	}
+`
+
 const SignUp = () => {
 	const navigate = useNavigate();
 	const [userid, setUserIdInput] = useState("");
@@ -46,16 +68,23 @@ const SignUp = () => {
 	const [pwcheck, setPasswordCheck] = useState("");
 	const [name, setnameInput] = useState("");
 	const [stnumber, setstudent_numberInput] = useState("");
+	const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
+	const specialCharRegex = /[~`!@#$%^&*()+=\-[\]\\';,./{}|":<>?_]/;
 
 	const idCheck = () => {
-		axios.post("api/IDcheck", null, {
-			params: {
-				userid: userid
-			}
-		})
+		axios
+			.post("api/IDcheck", null, {
+				params: {
+					userid: userid
+				}
+			})
 			.then((response) => {
-				if ((response.status === 200)) {
-					return alert("사용가능한 ID 입니다.");
+				if (userid.trim() === "") {
+					return alert("이름을 입력해주세요!");
+				} else if (koreanRegex.test(userid) || specialCharRegex.test(userid)) {
+					return alert("아이디에는 한글과 특수문자를 사용할 수 없습니다!");
+				} else if (response.status === 200) {
+					return alert("사용 가능한 ID 입니다.");
 				}
 			})
 			.catch((error) => {
@@ -74,8 +103,6 @@ const SignUp = () => {
 	};
 
 	const registeraxios = () => {
-		const koreanRegex = /[ㄱ-ㅎ|ㅏ-ㅣ|가-힣]/;
-		const specialCharRegex = /[~`!@#$%^&*()+=\-[\]\\';,./{}|":<>?_]/;
 		if (userid.trim() === "" || pw.trim() === "") {
 			return alert("아이디 또는 비밀번호를 입력해주세요!");
 		}
@@ -86,8 +113,10 @@ const SignUp = () => {
 			return alert("학번을 입력해주세요!");
 		}
 		if (
-			koreanRegex.test(userid) || specialCharRegex.test(userid) ||
-			koreanRegex.test(pw) || specialCharRegex.test(pw)
+			koreanRegex.test(userid) ||
+			specialCharRegex.test(userid) ||
+			koreanRegex.test(pw) ||
+			specialCharRegex.test(pw)
 		) {
 			return alert("아이디 또는 비밀번호에는 한글과 특수문자를 사용할 수 없습니다!");
 		}
@@ -98,13 +127,13 @@ const SignUp = () => {
 		axios
 			.post(`/api/signup-pp`, requestData)
 			.then((response) => {
-				if ((response.status = 200)) {
+				if (response.status === 200) {
 					alert("회원가입 완료");
 					return navigate("/Login");
 				}
 			})
 			.catch((error) => {
-				alert("회원가입에 실패했습니다!");
+				return alert("회원가입에 실패했습니다!");
 			});
 	};
 
@@ -112,31 +141,44 @@ const SignUp = () => {
 		<SignUpContent>
 			<SignUpForm>
 				<Title>SignUp</Title>
-				<Label>아이디</Label>
+				<FlexContainer>
+					<Label>아이디</Label>
+					<IdCheckButton onClick={idCheck}>id 중복확인</IdCheckButton>
+				</FlexContainer>
 				<Input
 					type="text"
-					onChange={(e) => {setUserIdInput(e.target.value);}}
+					maxLength={10}
+					onChange={(e) => {
+						setUserIdInput(e.target.value);
+					}}
 				/>
-				<Button onClick={idCheck}>id 중복확인</Button>
 				<Label>비밀번호</Label>
 				<Input
 					type="password"
+					maxLength={10}
 					onChange={handlePasswordChange}
 				/>
 				<Label>비밀번호 재확인</Label>
 				<Input
 					type="password"
+					maxLength={10}
 					onChange={handlePasswordCheckChange}
 				/>
 				<Label>이름</Label>
 				<Input
 					type="text"
-					onChange={(e) => {setnameInput(e.target.value);}}
+					maxLength={10}
+					onChange={(e) => {
+						setnameInput(e.target.value);
+					}}
 				/>
 				<Label>학번</Label>
 				<Input
-					type="text"
-					onChange={(e) => {setstudent_numberInput(e.target.value);}}
+					type="number"
+					maxLength={8}
+					onChange={(e) => {
+						setstudent_numberInput(e.target.value);
+					}}
 				/>
 				<Button onClick={registeraxios}>가입완료</Button>
 			</SignUpForm>
