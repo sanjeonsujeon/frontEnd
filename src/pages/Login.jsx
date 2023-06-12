@@ -3,6 +3,7 @@ import styled from "styled-components";
 import axios from 'axios';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
+import Button from "../Component/Button";
 
 const LoginContent = styled.div`
   width: 300px;
@@ -28,27 +29,21 @@ const InputForm = styled.div`
     border: 1px solid #ccc;
   }
 `
+const StyledButton = styled.button`
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 
-const ButtonForm = styled.div`
-  display: flex;
-  flex-direction: row;
+    &:hover {
+    background-color: #2f2f30;
+    }
 `
 
-const HandleButton = styled.button`
-display: inline-block;
-margin-right: 10px;
-padding: 10px 20px;
-background-color: #f0f0f0;
-color: #333;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.3s ease;
-
-&:hover {
-  background-color: #ccc;
-}
-`
 
 const Login = () => {
 
@@ -122,10 +117,9 @@ const Login = () => {
                    onChange={(e) => setPassword(e.target.value)}
                   />
                 </InputForm>
-                <ButtonForm>
-                    <HandleButton onClick={login}>Login</HandleButton>
-                    <HandleButton onClick={signup}>Sign Up</HandleButton>
-                </ButtonForm>
+            <StyledButton onClick={login}>Login</StyledButton>
+            <StyledButton onClick={signup}>Sign Up</StyledButton>
+
 			</LoginContent>
 		</>
 	);
