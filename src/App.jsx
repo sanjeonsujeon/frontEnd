@@ -12,6 +12,11 @@ import Board2 from "./pages/Board2";
 import Board3 from "./pages/Board3";
 import Board4 from "./pages/Board4";
 import Board5 from "./pages/Board5";
+import Board6 from "./pages/Board6";
+import Board7 from "./pages/Board7";
+import Board8 from "./pages/Board8";
+import Board9 from "./pages/Board9";
+import Board10 from "./pages/Board10";
 import CreatePost from "./pages/CreatePost";
 import BoardDetail from "./pages/Detail";
 import UpdatePost from "./pages/UpdatePost";
@@ -61,6 +66,11 @@ function App() {
               <Route path="/board3" element={<Board3 />} />
               <Route path="/board4" element={<Board4 />} />
               <Route path="/board5" element={<Board5 />} />
+              <Route path="/board6" element={<Board6 />} />
+              <Route path="/board7" element={<Board7 />} />
+              <Route path="/board8" element={<Board8 />} />
+              <Route path="/board9" element={<Board9 />} />
+              <Route path="/board10" element={<Board10 />} />
               <Route path="/detail/:id" element={<BoardDetail />} />
               <Route path="/updatepost" element={<UpdatePost />} />
               <Route path="/createpost" element={<CreatePost />} />

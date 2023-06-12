@@ -60,7 +60,7 @@ const Board = () => {
   useEffect(() => {
     const getBoardList = async () => {
       console.log('getBoardList()');
-      let response = await axios.get("/api/board-list4");
+      let response = await axios.get("/api/board-list10");
       console.log('main/response: ', response);
       setData(response.data.data || []);
     };

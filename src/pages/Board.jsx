@@ -48,7 +48,7 @@ transition: background-color 0.3s ease;
 }
 `
 const Pagenum = styled.div`
-  width: 500px;
+  width: 600px;
   height: 100Px;
   margin: auto;
 `
@@ -95,6 +95,26 @@ const Board = () => {
     navigate(`/board5`);
   }
 
+  const handleSixthBoardClick = () =>{
+    navigate(`/board6`);
+  }
+
+  const handleSeventhBoardClick = () =>{
+    navigate(`/board7`);
+  }
+
+  const handleEighthBoardClick = () =>{
+    navigate(`/board8`);
+  }
+
+  const handleNinethBoardClick = () =>{
+    navigate(`/board9`);
+  }
+
+  const handleTenthBoardClick = () =>{
+    navigate(`/board10`);
+  }
+
   return (
     <Container>
       <HeadContainer>
@@ -108,11 +128,16 @@ const Board = () => {
       ))}
       <Pagenum>
         {/* 이곳에 게시판 페이지 번호 들어갑니다.*/}
-        <CreateButton onClick={HandleFirstBoardClick}>1</CreateButton>
-        <CreateButton onClick={handleSecondBoardClick}>2</CreateButton>
-        <CreateButton onClick={handleThirdBoardClick}>3</CreateButton>
-        <CreateButton onClick={handleFourthBoardClick}>4</CreateButton>
-        <CreateButton onClick={handleFifthBoardClick}>5</CreateButton>
+        <CreateButton size="small" onClick={HandleFirstBoardClick}>1</CreateButton>
+        <CreateButton size="small" onClick={handleSecondBoardClick}>2</CreateButton>
+        <CreateButton size="small" onClick={handleThirdBoardClick}>3</CreateButton>
+        <CreateButton size="small" onClick={handleFourthBoardClick}>4</CreateButton>
+        <CreateButton size="small" onClick={handleFifthBoardClick}>5</CreateButton>
+        <CreateButton size="small" onClick={handleSixthBoardClick}>6</CreateButton>
+        <CreateButton size="small" onClick={handleSeventhBoardClick}>7</CreateButton>
+        <CreateButton size="small" onClick={handleEighthBoardClick}>8</CreateButton>
+        <CreateButton size="small" onClick={handleNinethBoardClick}>9</CreateButton>
+        <CreateButton size="small" onClick={handleTenthBoardClick}>10</CreateButton>
       </Pagenum>
     </Container>
   );

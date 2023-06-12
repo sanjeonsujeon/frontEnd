@@ -48,7 +48,7 @@ transition: background-color 0.3s ease;
 }
 `
 const Pagenum = styled.div`
-  width: 500px;
+  width: 600px;
   height: 100Px;
   margin: auto;
 `
@@ -95,6 +95,26 @@ const Board = () => {
     navigate(`/board5`);
   }
 
+  const handleSixthBoardClick = () =>{
+    navigate(`/board6`);
+  }
+
+  const handleSeventhBoardClick = () =>{
+    navigate(`/board7`);
+  }
+
+  const handleEighthBoardClick = () =>{
+    navigate(`/board8`);
+  }
+
+  const handleNinethBoardClick = () =>{
+    navigate(`/board9`);
+  }
+
+  const handleTenthBoardClick = () =>{
+    navigate(`/board10`);
+  }
+
   return (
     <Container>
       <HeadContainer>
@@ -113,6 +133,11 @@ const Board = () => {
         <CreateButton onClick={handleThirdBoardClick}>3</CreateButton>
         <CreateButton onClick={handleFourthBoardClick}>4</CreateButton>
         <CreateButton onClick={handleFifthBoardClick}>5</CreateButton>
+        <CreateButton onClick={handleSixthBoardClick}>6</CreateButton>
+        <CreateButton onClick={handleSeventhBoardClick}>7</CreateButton>
+        <CreateButton onClick={handleEighthBoardClick}>8</CreateButton>
+        <CreateButton onClick={handleNinethBoardClick}>9</CreateButton>
+        <CreateButton onClick={handleTenthBoardClick}>10</CreateButton>
       </Pagenum>
     </Container>
   );
