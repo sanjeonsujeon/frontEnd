@@ -49,7 +49,7 @@ const SignUp = () => {
 	const navigate = useNavigate();
 
 	const idCheck = () => {
-		axios.post("http://localhost:8080/api/IDcheck", null, {
+		axios.post("/api/IDcheck", null, {
 			params: {
 				userid: userid
 			}
@@ -89,10 +89,13 @@ const SignUp = () => {
 		}
 
 		axios
-			.post(`/api/signup-pp`, requestData)
+			.post(`http://localhost:8080/api/signup-pp`, requestData)
 			.then((response) => {
 				if ((response.status = 200)) {
 					return alert("회원가입 완료"), navigate("/Login");
+				}
+				if ((response.status = 800)) {
+					return alert("회원가입 중복"), navigate("/Login");
 				}
 			})
 			.catch((error) => {
