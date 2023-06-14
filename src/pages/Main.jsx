@@ -113,15 +113,6 @@ const InnerSubBoardContent = styled.div`
   margin-left:auto;
 `
 
-const SubMenu = styled.button`
-  width: 100%;
-  font-size: 18px;
-  margin: auto;
-  margin-bottom: 10px;
-  background-color: #fff;
-  cursor: pointer;
-`
-
 const BoardItem = styled.div`
   margin-bottom: 10px;
   padding: 10px;
@@ -134,17 +125,29 @@ const BoardItem = styled.div`
   text-overflow: ellipsis;
 `
 
+const SubMenu = styled.button`
+  width: 100%;
+  font-size: 18px;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: #fff;
+  cursor: pointer;
+`
+
 const Main = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     const getBoardList = async () => {
-      let response = await axios.get("/api/board-list");
+      console.log('getBoardList()');
+      let response = await axios.get(`/api/board-list?pageNumber=${currentPage}`);
+      console.log('main/response: ', response);
       setData(response.data.data || []);
     };
     getBoardList();
-  }, []);
+  }, [currentPage]);
 
   const handleMoveBoardClick = () => {
     navigate(`/board`);
@@ -197,6 +200,7 @@ const Main = () => {
               </BoardItem>
             ))}
           </InnerSubBoardContent>
+
         </SubBoardContent>
       </SubContent>
     </BodyContent>
