@@ -5,7 +5,7 @@ import Header from './Component/Header';
 import Footer from './Component/Footer';
 import Main from './pages/Main';
 import Login from './pages/Login';
-import SignUp from './pages/SginUp';
+import SignUp from './pages/SignUp';
 import NotFound from './pages/NotFound';
 import Board from "./pages/Board";
 import Board2 from "./pages/Board2";
