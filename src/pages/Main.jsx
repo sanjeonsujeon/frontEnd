@@ -199,6 +199,7 @@ const Main = () => {
         </SubBoardContent>
       </SubContent>
     </BodyContent>
+
   );
 };
 

@@ -60,7 +60,7 @@ const Board = () => {
   useEffect(() => {
     const getBoardList = async () => {
       console.log('getBoardList()');
-      let response = await axios.get("/api/board-list");
+      let response = await axios.get("/api/board-list8");
       console.log('main/response: ', response);
       setData(response.data.data || []);
     };
@@ -128,16 +128,16 @@ const Board = () => {
       ))}
       <Pagenum>
         {/* 이곳에 게시판 페이지 번호 들어갑니다.*/}
-        <CreateButton size="small" onClick={HandleFirstBoardClick}>1</CreateButton>
-        <CreateButton size="small" onClick={handleSecondBoardClick}>2</CreateButton>
-        <CreateButton size="small" onClick={handleThirdBoardClick}>3</CreateButton>
-        <CreateButton size="small" onClick={handleFourthBoardClick}>4</CreateButton>
-        <CreateButton size="small" onClick={handleFifthBoardClick}>5</CreateButton>
-        <CreateButton size="small" onClick={handleSixthBoardClick}>6</CreateButton>
-        <CreateButton size="small" onClick={handleSeventhBoardClick}>7</CreateButton>
-        <CreateButton size="small" onClick={handleEighthBoardClick}>8</CreateButton>
-        <CreateButton size="small" onClick={handleNinethBoardClick}>9</CreateButton>
-        <CreateButton size="small" onClick={handleTenthBoardClick}>10</CreateButton>
+        <CreateButton onClick={HandleFirstBoardClick}>1</CreateButton>
+        <CreateButton onClick={handleSecondBoardClick}>2</CreateButton>
+        <CreateButton onClick={handleThirdBoardClick}>3</CreateButton>
+        <CreateButton onClick={handleFourthBoardClick}>4</CreateButton>
+        <CreateButton onClick={handleFifthBoardClick}>5</CreateButton>
+        <CreateButton onClick={handleSixthBoardClick}>6</CreateButton>
+        <CreateButton onClick={handleSeventhBoardClick}>7</CreateButton>
+        <CreateButton onClick={handleEighthBoardClick}>8</CreateButton>
+        <CreateButton onClick={handleNinethBoardClick}>9</CreateButton>
+        <CreateButton onClick={handleTenthBoardClick}>10</CreateButton>
       </Pagenum>
     </Container>
   );

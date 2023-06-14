@@ -115,6 +115,7 @@ const SignUp = () => {
 		if (
 			koreanRegex.test(userid) || specialCharRegex.test(userid) ||
 			koreanRegex.test(pw) || specialCharRegex.test(pw)
+
 		) {
 			return alert("아이디 또는 비밀번호에는 한글과 특수문자를 사용할 수 없습니다!");
 		}
@@ -129,10 +130,12 @@ const SignUp = () => {
 					alert("회원가입 완료");
 					return navigate("/Login");
 				}
+
 				if ((response.status = 800)) {
 					alert("회원가입 중복")
 					return navigate("/Login");
 				}
+
 			})
 			.catch((error) => {
 				return alert("회원가입에 실패했습니다!");
