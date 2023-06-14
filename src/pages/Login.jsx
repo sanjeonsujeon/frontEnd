@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const LoginContent = styled.div`
   width: 300px;
   height: 400px;
+  padding: 20px;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -14,6 +15,7 @@ const LoginContent = styled.div`
   align-items: center;
   background-color: #f0f0f0;
   border-radius: 5px;
+  border: 1px solid #ccc;
 `
 
 const InputForm = styled.div`
@@ -59,6 +61,13 @@ const Input = styled.input`
   border: 1px solid #ccc;
 `
 
+const Label = styled.label`
+  display: block;
+  margin-bottom: 5px;
+  text-align: left;
+  color: #333;
+  font-weight: bold;
+`
 
 const Login = () => {
   const navigate = useNavigate();
@@ -106,11 +115,13 @@ const Login = () => {
       <LoginContent>
         <h2>Login</h2>
         <InputForm>
+					<Label>아이디</Label>
           <Input
             type="text"
             placeholder="ID"
             onChange={(e) => setUserID(e.target.value)}
           />
+          <Label>비밀번호</Label>
           <Input
             type="password"
             placeholder="Password"
