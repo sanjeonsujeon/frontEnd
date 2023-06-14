@@ -72,18 +72,11 @@ const SignUp = () => {
 	const specialCharRegex = /[~`!@#$%^&*()+=\-[\]\\';,./{}|":<>?_]/;
 
 	const idCheck = () => {
-<<<<<<< HEAD
-		axios.post("/api/IDcheck", null, {
-			params: {
-				userid: userid
-			}
-=======
 		axios
 			.post("api/IDcheck", null, {
 				params: {
 					userid: userid
 				}
->>>>>>> feca84cbf54ebc5fe7cbef3611c17df4534bd21f
 			})
 			.then((response) => {
 				if (userid.trim() === "") {
