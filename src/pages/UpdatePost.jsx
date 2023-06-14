@@ -84,8 +84,8 @@ const UpdatePost = () => {
       return;
     }
 
-    if (title.length > 16) {
-      alert("제목은 16글자 이하여야 합니다.");
+    if (title.length > 30) {
+      alert("제목은 30글자 이하여야 합니다.");
       return;
     }    
     if (content.length > 8000) {
