@@ -75,8 +75,6 @@ const Board = () => {
   const [totalIds, setTotalIds] = useState(0);
   const [currentPage, setCurrentPage] = useState(0);
 
-
-
   useEffect(() => {
     const getTotalIds = async () => {
       let response = await axios.get("/api/total-ids");
@@ -106,7 +104,6 @@ const Board = () => {
     };
     getBoardList();
   }, [currentPage]);
-
 
   const handleCreateBoardClick = () => {
     navigate('/createpost');
