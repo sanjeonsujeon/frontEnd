@@ -140,14 +140,14 @@ const Main = () => {
 
   useEffect(() => {
     const getBoardList = async () => {
-      let response = await axios.get("/api/board-list");
+      let response = await axios.get(`/api/board-list?pageNumber=0`);
       setData(response.data.data || []);
     };
     getBoardList();
   }, []);
 
   const handleMoveBoardClick = () => {
-    navigate(`/board`);
+    navigate(`/dev`);
   };
 
   const handleBoardItemClick = (id) => {
@@ -160,7 +160,7 @@ const Main = () => {
         <Inner>
           <Title>캡스톤디자인</Title>
           <Description>메인페이지는 도아가가 처리했으니 안심하라구!</Description>
-          <Button onClick={handleMoveBoardClick}>게시판으로</Button>
+          <Button onClick={handleMoveBoardClick}>Dev Page</Button>
         </Inner>
       </Banner>
 

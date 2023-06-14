@@ -18,6 +18,13 @@ const Title = styled.h1`
   margin-bottom: 20px;
 `
 
+const Pagenum = styled.div`
+  width: 600px;
+  height: 100Px;
+  margin: auto;
+`
+
+
 const BoardItem = styled.div`
   margin-bottom: 10px;
   padding: 10px;
@@ -50,25 +57,56 @@ const CreateButton = styled.button`
   }
 `
 
-const Pagenum = styled.div`
-  width: 600px;
-  height: 100Px;
-  margin: auto;
+const PageButton = styled.button`
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: ${props => (props.isActive ? '#ccc' : '#f0f0f0')};
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 `
 
 const Board = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  const [totalIds, setTotalIds] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+
+
 
   useEffect(() => {
+    const getTotalIds = async () => {
+      let response = await axios.get("/api/total-ids");
+      const data = parseInt(response.headers.totalcount, 10);
+      setTotalIds(data);
+      console.log(totalIds);
+    };
+    getTotalIds();
+  }, []);
+
+  useEffect(() => {
+    setCurrentPage(0);
+  }, []);
+  
+  useEffect(() => {
     const getBoardList = async () => {
-      console.log('getBoardList()');
-      let response = await axios.get("/api/board-list");
-      console.log('main/response: ', response);
+      let response;
+      // 게시판에 따라 다른 API 호출
+      if (window.location.pathname === "/board/1") {
+        response = await axios.get(`/api/board-list?pageNumber=${currentPage}`);
+      } else if (window.location.pathname === "/board/2") {
+        response = await axios.get("/api/graduateboard-list");
+      } else if (window.location.pathname === "/board/3") {
+        response = await axios.get("/api/infoboard-list");
+      } 
       setData(response.data.data || []);
     };
     getBoardList();
-  }, []);
+  }, [currentPage]);
+
 
   const handleCreateBoardClick = () => {
     navigate('/createpost');
@@ -78,8 +116,15 @@ const Board = () => {
     navigate(`/detail/${id}`);
   };
 
-  const HandleFirstBoardClick = () =>{
-    navigate(`/board`);
+  const handlePageButtonClick = async (pageNumber) => {
+    setCurrentPage(pageNumber);
+  
+    try {
+      const response = await axios.get(`/api/board-list?pageNumber=${pageNumber}`);
+      setData(response.data.data || []);
+    } catch (error) {
+      console.log('Error occurred:', error);
+    }
   }
 
   return (
@@ -94,8 +139,15 @@ const Board = () => {
         </BoardItem>
       ))}
       <Pagenum>
-        {/* 이곳에 게시판 페이지 번호 들어갑니다.*/}
-        <CreateButton size="small" onClick={HandleFirstBoardClick}>1</CreateButton>
+        {Array.from(Array(Math.ceil(totalIds / 10)).keys()).map((pageNumber) => (
+          <PageButton
+            key={pageNumber}
+            isActive={pageNumber === currentPage}
+            onClick={() => handlePageButtonClick(pageNumber)}
+          >
+            {pageNumber + 1}
+          </PageButton>
+        ))}
       </Pagenum>
     </Container>
   );
