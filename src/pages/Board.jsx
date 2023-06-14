@@ -17,6 +17,13 @@ const Title = styled.h1`
   margin-bottom: 20px;
 `
 
+const Pagenum = styled.div`
+  width: 600px;
+  height: 100Px;
+  margin: auto;
+`
+
+
 const BoardItem = styled.div`
   margin-bottom: 10px;
   padding: 10px;
@@ -45,11 +52,6 @@ transition: background-color 0.3s ease;
 &:hover {
   background-color: #ccc;
 }
-`
-const Pagenum = styled.div`
-  width: 600px;
-  height: 100Px;
-  margin: auto;
 `
 
 const Board = () => {

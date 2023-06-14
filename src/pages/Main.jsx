@@ -113,21 +113,21 @@ const InnerSubBoardContent = styled.div`
   margin-left:auto;
 `
 
-const SubMenu = styled.button`
-  width: 100%;
-  font-size: 18px;
-  margin: auto;
-  margin-bottom: 10px;
-  background-color: #fff;
-  cursor: pointer;
-`
-
 const BoardItem = styled.div`
   margin-bottom: 10px;
   padding: 10px;
   height: fit-content;
   background-color: #f0f0f0;
   border-radius: 5px;
+  cursor: pointer;
+`
+
+const SubMenu = styled.button`
+  width: 100%;
+  font-size: 18px;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: #fff;
   cursor: pointer;
 `
 
@@ -196,7 +196,7 @@ const Main = () => {
               </BoardItem>
             ))}
           </InnerSubBoardContent>
-          
+
         </SubBoardContent>
       </SubContent>
     </BodyContent>
