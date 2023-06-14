@@ -66,34 +66,29 @@ const CreatePost = () => {
 
   const handleInputClick = async () => {
     if (title.trim() === "" || content.trim() === "") {
-      alert("제목과 내용을 모두 입력해주세요.");
-      return;
+      return alert("제목과 내용을 모두 입력해주세요.");
     }
 
     if (title.length > 30) {
-      alert("제목은 30글자 이하여야 합니다.");
-      return;
+      return alert("제목은 30글자 이하여야 합니다.");
     }    
     if (content.length > 8000) {
-      alert("내용은 8000자 이하여야 합니다.");
-      return;
+      return alert("내용은 8000자 이하여야 합니다.");
     }
 
     const requestData = { title, content };
 
     try {
-      console.log("Registration Data:", requestData);
+      
+      ///api/create-board?boardNumber=${보드넘버}
       const response = await axios.post('/api/create-board', requestData);
-      console.log('writeBoard/response: ', response);
-      console.log('writeBoard/response.status: ', response.status);
 
       if (response.status >= 200 && response.status < 400) {
-        alert("게시글이 정상적으로 생성되었습니다.");
+        return alert("게시글이 정상적으로 생성되었습니다.");
       } else if (response.status >= 400) {
-        alert("게시글 생성이 정상적으로 되지 않았습니다.");
+        return alert("게시글 생성이 정상적으로 되지 않았습니다.");
       }
-
-      navigate("/board");
+      return navigate("/board");
     } catch (error) {
       console.log('CreateBoard/handleInput/err: ', error);
     }
@@ -124,7 +119,6 @@ const CreatePost = () => {
         onChange={handleTitleChange}
         value={title}
       />
-
       <ContentLabel>내용</ContentLabel>
       <Textarea
         id="textarea_content"

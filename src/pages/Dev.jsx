@@ -42,8 +42,6 @@ const Dev = () => {
     <Container>
       <Title>Dev Page</Title>
       <BoardButton onClick={() => handleBoardClick()}>자유게시판</BoardButton>
-      <BoardButton onClick={() => handleBoardClick()}>졸업생게시판</BoardButton>
-      <BoardButton onClick={() => handleBoardClick()}>정보게시판</BoardButton>
     </Container>
   );
 };

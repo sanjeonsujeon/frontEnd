@@ -79,11 +79,11 @@ const Detail = () => {
       const request_data = { id: id };
       let response = await axios({
         method: 'delete',
+      ///api/delete-board?boardNumber=${보드넘버}&pageNumber=${currentPage}
         url: '/api/delete-board',
         headers: { 'Content-Type': 'application/json' },
         data: JSON.stringify(request_data)
       });
-      console.log('Detail/handleDeleteBtnClick/response: ', response);
       if (response.status === 204) {
         alert("게시글 삭제 완료!");
         return navigate("/board", {});
@@ -97,10 +97,8 @@ const Detail = () => {
 
   useEffect(() => {
     const getDetailBoard = async () => {
+      ///api/board-detail?boardNumber=${보드넘버}&pageNumber=${currentPage}
       let response = await axios.get(`/api/board-detail/${id}`);
-      console.log('Detail/response: ', response);
-      console.log('Detail/response.data: ', response.data);
-      console.log('Detail/response.data.data: ', response.data.data);
       setTitle(response.data.data.title);
       setContent(response.data.data.content);
     };
