@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import { useNavigate, useLocation } from "react-router-dom";
 import styled from "styled-components";
-import config from "./config";
+import config from "../config";
 
 const Container = styled.div`
   width: 100%;
@@ -99,7 +99,7 @@ const InfoUpdatePost = () => {
     const requestData = { id, title, content };
     console.log('requestData: ', requestData);
     try {
-      const response = await axios.put('/api/${config.info}', requestData);
+      const response = await axios.put(config.info , requestData);
       console.log('writeBoard/response: ', response);
       console.log('writeBoard/response.status: ', response.status);
       setTitle(""); // 제목 초기화
