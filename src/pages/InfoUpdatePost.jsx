@@ -99,7 +99,7 @@ const InfoUpdatePost = () => {
     const requestData = { id, title, content };
     console.log('requestData: ', requestData);
     try {
-      const response = await axios.put(config.info , requestData);
+      const response = await axios.put(config.info, requestData);
       console.log('writeBoard/response: ', response);
       console.log('writeBoard/response.status: ', response.status);
       setTitle(""); // 제목 초기화
