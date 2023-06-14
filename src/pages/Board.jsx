@@ -8,6 +8,7 @@ const Container = styled.div`
   margin: 0 auto;
 `
 const HeadContainer = styled.div`
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center; 
@@ -32,20 +33,23 @@ const BoardTitle = styled.h3`
 `
 
 const CreateButton = styled.button`
-display: inline-block;
-margin-right: 10px;
-padding: 10px 20px;
-background-color: #f0f0f0;
-color: #333;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
-&:hover {
-  background-color: #ccc;
-}
+  &:hover {
+    background-color: #ccc;
+  }
 `
+
 const Pagenum = styled.div`
   width: 600px;
   height: 100Px;

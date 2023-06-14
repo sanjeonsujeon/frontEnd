@@ -129,6 +129,9 @@ const BoardItem = styled.div`
   background-color: #f0f0f0;
   border-radius: 5px;
   cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 const Main = () => {
@@ -137,9 +140,7 @@ const Main = () => {
 
   useEffect(() => {
     const getBoardList = async () => {
-      console.log('getBoardList()');
       let response = await axios.get("/api/board-list");
-      console.log('main/response: ', response);
       setData(response.data.data || []);
     };
     getBoardList();
@@ -166,17 +167,17 @@ const Main = () => {
       <MainContent>
         <MainBoardContent>
           <SubTitle>자유게시판</SubTitle>
-          {data.map(board => (
+          {data.slice(0, 10).map(board => (
             <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
               <div>{board.title}</div>
             </BoardItem>
           ))}
         </MainBoardContent>
         <BestContent>
-          <SubTitle>틀딱 게시판</SubTitle>
-          {data.map(board => (
+          <SubTitle>틀Nee 게시판</SubTitle>
+          {data.slice(0, 10).map(board => (
             <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
-              <div>{board.title}</div>
+              {board.title.length > 15 ? `${board.title.slice(0, 15)}...` : board.title}
             </BoardItem>
           ))}
         </BestContent>
@@ -190,7 +191,7 @@ const Main = () => {
             <SubMenu onClick={handleMoveBoardClick}>정보 게시판</SubMenu>
           </SideMenuBar>
           <InnerSubBoardContent>
-            {data.map(board => (
+            {data.slice(0, 10).map(board => (
               <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
                 <div>{board.title}</div>
               </BoardItem>
