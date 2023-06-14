@@ -19,4 +19,30 @@
         navigate("/Login");
       })
   }
+
+
+  
+  
+  const logout = () => {
+    const refreshToken = localStorage.getItem('login-refresh-token');
+  
+    axios.post(`/api/logout`, {},{
+      headers: {
+        "refreshtoken" : refreshToken
+      }
+    })
+      .then((response) => {
+        if ((response.status === 200)) {
+          localStorage.removeItem('login-refresh-token'); 
+          console.log(refreshToken);
+					return console.log("토큰 확인 완료"), navigate("/Login");
+				}
+      })
+      .catch((Error) => {
+        console.log(Error)
+        console.log("don't remove token");
+        alert("오류가 발생하였습니다.");
+      })
+  }
+
   */}

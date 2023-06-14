@@ -45,7 +45,6 @@ const StyledButton = styled.button`
 
 
 const Login = () => {
-
   const navigate = useNavigate();
 
   const [UserID, setUserID] = useState("");
@@ -62,17 +61,14 @@ const Login = () => {
       .then((response) => {
         console.log(response.headers);
         if ((response.status === 200)) {
-          console.log(response.headers.authorization);
           const refreshtoken = response.headers.refreshtoken;
           localStorage.setItem('login-refresh-token', refreshtoken)
-          console.log(refreshtoken);
           alert("쌉가능");
         }
 
 
       })
       .catch((Error) => {
-        console.log(Error)
         alert("일치하는 회원 정보가 없습니다.");
       })
   }
@@ -99,7 +95,6 @@ const Login = () => {
         </InputForm>
         <StyledButton onClick={onSubmit}>Login</StyledButton>
         <StyledButton onClick={signup}>Sign Up</StyledButton>
-
       </LoginContent>
     </>
   );
