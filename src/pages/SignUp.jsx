@@ -131,6 +131,9 @@ const SignUp = () => {
 					alert("회원가입 완료");
 					return navigate("/Login");
 				}
+				if ((response.status = 800)) {
+					return alert("회원가입 중복"), navigate("/Login");
+				}
 			})
 			.catch((error) => {
 				return alert("회원가입에 실패했습니다!");
