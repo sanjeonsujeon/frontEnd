@@ -28,19 +28,35 @@ const InputForm = styled.div`
     border: 1px solid #ccc;
   }
 `
-const StyledButton = styled.button`
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #555;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
 
-    &:hover {
+const ButtonForm = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`
+
+const StyledButton = styled.button`
+  width: 46%; 
+  padding: 10px;
+  margin: auto;
+  border-radius: 5px;
+  background-color: #555;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
     background-color: #2f2f30;
-    }
+  }
+`
+
+const Input = styled.input`
+  width: 200px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
 `
 
 
@@ -63,15 +79,23 @@ const Login = () => {
         if ((response.status === 200)) {
           const refreshtoken = response.headers.refreshtoken;
           localStorage.setItem('login-refresh-token', refreshtoken)
-          alert("쌉가능");
+          return navigate('/');
         }
-
-
       })
       .catch((Error) => {
-        alert("일치하는 회원 정보가 없습니다.");
-      })
+        if (UserID.trim() === "") {
+					return alert("ID를 입력해주세요!");
+				} else if (Password.trim() === "") {
+					return alert("PW를 입력해주세요!");
+				} else return alert("일치하는 회원 정보가 없습니다.");
+			})
   }
+
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      onSubmit(event);
+    }
+  };
 
   const signup = () => {
     navigate('/signup');
@@ -82,19 +106,22 @@ const Login = () => {
       <LoginContent>
         <h2>Login</h2>
         <InputForm>
-          <input
+          <Input
             type="text"
             placeholder="ID"
             onChange={(e) => setUserID(e.target.value)}
           />
-          <input
+          <Input
             type="password"
             placeholder="Password"
             onChange={(e) => setPassword(e.target.value)}
+            onKeyDown={handleKeyDown}
           />
         </InputForm>
-        <StyledButton onClick={onSubmit}>Login</StyledButton>
-        <StyledButton onClick={signup}>Sign Up</StyledButton>
+        <ButtonForm>
+          <StyledButton onClick={onSubmit}>Login</StyledButton>
+          <StyledButton onClick={signup}>Sign Up</StyledButton>
+        </ButtonForm>
       </LoginContent>
     </>
   );
