@@ -56,7 +56,7 @@ const Login = () => {
   const onSubmit = (event) => {
     event.preventDefault();
     axios
-      .post("/api/login", {
+      .post(`/api/login`, {
         userid: UserID,
         pw: Password,
       })
@@ -64,12 +64,10 @@ const Login = () => {
         console.log(response.headers);
         if ((response.status === 200)) {
           console.log(response.headers.authorization);
-          const authorization = response.headers.authorization;
           const refreshtoken = response.headers.refreshtoken;
-          localStorage.setItem('login-token', authorization)
           localStorage.setItem('login-refresh-token', refreshtoken)
-          
           console.log(refreshtoken);
+          localStorage.removeItem('login-refresh-token');
           alert("쌉가능");
         }
 
@@ -81,6 +79,47 @@ const Login = () => {
       })
   }
 
+  const checkToekn = (page) => {// page 는 현재 접속 하려고 하는 페이지
+    const refreshToken = localStorage.getItem('login-refresh-token');
+  
+    axios.post(`/api/check-token`, {},{
+      headers: {
+        "refreshtoken" : refreshToken
+      }
+    })
+      .then((response) => {
+        if ((response.status === 200)) {
+					return console.log("토큰 확인 완료"), navigate(`/${page}`);
+				}
+      })
+      .catch((Error) => {
+        console.log(Error)
+        alert("다시 로그인 하여 주십시오");
+        navigate("/Login");
+      })
+  }
+
+  const logout = () => {
+    const refreshToken = localStorage.getItem('login-refresh-token');
+  
+    axios.post(`/api/logout`, {},{
+      headers: {
+        "refreshtoken" : refreshToken
+      }
+    })
+      .then((response) => {
+        if ((response.status === 200)) {
+          localStorage.removeItem('login-refresh-token'); 
+          console.log(refreshToken);
+					return console.log("토큰 확인 완료"), navigate("/Login");
+				}
+      })
+      .catch((Error) => {
+        console.log(Error)
+        console.log("don't remove token");
+        alert("오류가 발생하였습니다.");
+      })
+  }
 /*
   const onSilentRefresh = () => {
     axios.post("http://localhost:8080/api/oauth/token",{ }, {
@@ -130,6 +169,8 @@ const Login = () => {
           />
         </InputForm>
         <StyledButton onClick={onSubmit}>Login</StyledButton>
+        <StyledButton onClick={checkToekn}>checkToken</StyledButton>
+        <StyledButton onClick={logout}>logout</StyledButton>
         <StyledButton onClick={signup}>Sign Up</StyledButton>
 
       </LoginContent>

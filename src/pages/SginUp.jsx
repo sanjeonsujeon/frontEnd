@@ -89,7 +89,7 @@ const SignUp = () => {
 		}
 
 		axios
-			.post(`http://localhost:8080/api/signup-pp`, requestData)
+			.post(`/api/signup-pp`, requestData)
 			.then((response) => {
 				if ((response.status = 200)) {
 					return alert("회원가입 완료"), navigate("/Login");
