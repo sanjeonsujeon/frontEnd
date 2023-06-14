@@ -8,6 +8,7 @@ const Container = styled.div`
   margin: 0 auto;
 `
 const HeadContainer = styled.div`
+  margin-top: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center; 
@@ -16,6 +17,13 @@ const HeadContainer = styled.div`
 const Title = styled.h1`
   margin-bottom: 20px;
 `
+
+const Pagenum = styled.div`
+  width: 600px;
+  height: 100Px;
+  margin: auto;
+`
+
 
 const BoardItem = styled.div`
   margin-bottom: 10px;
@@ -39,17 +47,14 @@ const CreateButton = styled.button`
   color: #333;
   border: none;
   border-radius: 5px;
+  border: none;
+  text-decoration: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
 
   &:hover {
     background-color: #ccc;
   }
-`
-const Pagenum = styled.div`
-  width: 600px;
-  height: 100px;
-  margin: auto;
 `
 
 const PageButton = styled.button`

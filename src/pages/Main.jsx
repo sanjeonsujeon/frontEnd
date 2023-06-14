@@ -113,21 +113,24 @@ const InnerSubBoardContent = styled.div`
   margin-left:auto;
 `
 
-const SubMenu = styled.button`
-  width: 100%;
-  font-size: 18px;
-  margin: auto;
-  margin-bottom: 10px;
-  background-color: #fff;
-  cursor: pointer;
-`
-
 const BoardItem = styled.div`
   margin-bottom: 10px;
   padding: 10px;
   height: fit-content;
   background-color: #f0f0f0;
   border-radius: 5px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
+const SubMenu = styled.button`
+  width: 100%;
+  font-size: 18px;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: #fff;
   cursor: pointer;
 `
 
@@ -167,17 +170,17 @@ const Main = () => {
       <MainContent>
         <MainBoardContent>
           <SubTitle>자유게시판</SubTitle>
-          {data.map(board => (
+          {data.slice(0, 10).map(board => (
             <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
               <div>{board.title}</div>
             </BoardItem>
           ))}
         </MainBoardContent>
         <BestContent>
-          <SubTitle>틀딱 게시판</SubTitle>
-          {data.map(board => (
+          <SubTitle>틀Nee 게시판</SubTitle>
+          {data.slice(0, 10).map(board => (
             <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
-              <div>{board.title}</div>
+              {board.title.length > 15 ? `${board.title.slice(0, 15)}...` : board.title}
             </BoardItem>
           ))}
         </BestContent>
@@ -191,12 +194,13 @@ const Main = () => {
             <SubMenu onClick={handleMoveBoardClick}>정보 게시판</SubMenu>
           </SideMenuBar>
           <InnerSubBoardContent>
-            {data.map(board => (
+            {data.slice(0, 10).map(board => (
               <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
                 <div>{board.title}</div>
               </BoardItem>
             ))}
           </InnerSubBoardContent>
+
         </SubBoardContent>
       </SubContent>
     </BodyContent>

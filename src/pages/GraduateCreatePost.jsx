@@ -59,7 +59,7 @@ const Button = styled.input`
   }
 `
 
-const CreatePost = () => {
+const GraduateCreatePost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const navigate = useNavigate();
@@ -83,7 +83,7 @@ const CreatePost = () => {
 
     try {
       console.log("Registration Data:", requestData);
-      const response = await axios.post('/api/create-board', requestData);
+      const response = await axios.post('/api/graduatecreate-board', requestData);
       console.log('writeBoard/response: ', response);
       console.log('writeBoard/response.status: ', response.status);
 
@@ -93,7 +93,7 @@ const CreatePost = () => {
         alert("게시글 생성이 정상적으로 되지 않았습니다.");
       }
 
-      navigate("/board");
+      navigate("/graduateboard");
     } catch (error) {
       console.log('CreateBoard/handleInput/err: ', error);
     }
@@ -136,4 +136,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default GraduateCreatePost;
