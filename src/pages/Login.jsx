@@ -67,7 +67,6 @@ const Login = () => {
           const refreshtoken = response.headers.refreshtoken;
           localStorage.setItem('login-refresh-token', refreshtoken)
           console.log(refreshtoken);
-          localStorage.removeItem('login-refresh-token');
           alert("쌉가능");
         }
 
@@ -120,29 +119,6 @@ const Login = () => {
         alert("오류가 발생하였습니다.");
       })
   }
-/*
-  const onSilentRefresh = () => {
-    axios.post("http://localhost:8080/api/oauth/token",{ }, {
-      headers: {
-        authorization: localStorage.getItem('login-token'),
-        refreshtoken: localStorage.getItem('login-refresh-token')
-      } 
-    })
-      .then((response) => {
-        if (response.status === 200) {
-          localStorage.setItem('login-token', 'authorization');
-          localStorage.setItem('login-refresh-token', 'refreshtoken');
-          //console.log(localStorage);
-          alert("연장완료");
-          setInterval(onSilentRefresh, 60000);
-        }
-      })
-      .catch(error => {
-        alert("연장실패.");
-        console.log(error);
-      });
-  }
-  */
 
   const login = () => {
     navigate('/');
