@@ -196,6 +196,7 @@ const Main = () => {
               </BoardItem>
             ))}
           </InnerSubBoardContent>
+          
         </SubBoardContent>
       </SubContent>
     </BodyContent>
