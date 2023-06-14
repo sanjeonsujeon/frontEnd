@@ -113,15 +113,6 @@ const InnerSubBoardContent = styled.div`
   margin-left:auto;
 `
 
-const SubMenu = styled.button`
-  width: 100%;
-  font-size: 18px;
-  margin: auto;
-  margin-bottom: 10px;
-  background-color: #fff;
-  cursor: pointer;
-`
-
 const BoardItem = styled.div`
   margin-bottom: 10px;
   padding: 10px;
@@ -132,6 +123,15 @@ const BoardItem = styled.div`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`
+
+const SubMenu = styled.button`
+  width: 100%;
+  font-size: 18px;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: #fff;
+  cursor: pointer;
 `
 
 const Main = () => {
@@ -197,6 +197,7 @@ const Main = () => {
               </BoardItem>
             ))}
           </InnerSubBoardContent>
+
         </SubBoardContent>
       </SubContent>
     </BodyContent>
