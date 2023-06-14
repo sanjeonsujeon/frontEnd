@@ -8,56 +8,70 @@ import searchImage from "../images/search.png";
 
 /* gray #343439 */
 const StyledHeader = styled.div`
-    align-items: center;
-    background-color: #343439;
-    color: white;
-    display : flex;
-    height: ${config.HeaderHeight};
-    width: 100%;
-`
+  position: fixed;
+  top: 0;
+  align-items: center;
+  background-color: #343439;
+  color: white;
+  display: flex;
+  height: ${config.HeaderHeight};
+  width: 100%;
+  z-index: 9999; /* 필요에 따라 적절한 z-index 값을 설정하세요 */
+`;
+
 const Menu = styled.div`
-    display: flex;
-    flex-direction: row;
-    margin-left: auto;
-`
+  display: flex;
+  flex-direction: row;
+  margin-left: auto;
+`;
+
 const Headerdiv = styled.div`
-    display: flex;
-    width: 100%;
-    height: 100%;
-    max-width: ${config.BodyWidth};
-    margin: 0 auto;
-`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  max-width: ${config.BodyWidth};
+  margin: 0 auto;
+`;
+
+const Logo = styled.h1`
+  color: white;
+  text-decoration: none;
+  margin: auto;
+  margin-left : 20px;
+`;
 
 function Header() {
-    const menus = [
-        { path: "/#", image: searchImage, alt:"search"},
-        { path: "/login", image: personImage, alt:"login"}
-    ];
+  const menus = [
+    { path: "/#", image: searchImage, alt: "search" },
+    { path: "/login", image: personImage, alt: "login" }
+  ];
 
-    return (
-        <StyledHeader>
-            <Headerdiv>
-                <h1>
-                    <NavLink to="/" style={{color: "white", textDecoration: "none", margin: "auto"}}>LOGO</NavLink>
-                </h1>
-            <Menu>
-                {menus.map((menu, index) => {
-                    return(
-                        <NavLink
-                        exact
-                        style={{color: "white", textDecoration: "none", margin: "auto 20px auto 0"}}
-                        to={menu.path} 
-                        key={index}
-                        activeStyle={{color: "black"}}
-                        >
-                            <HeaderItem menu={menu} />
-                        </NavLink>
-                    );
-                })}
-            </Menu>
-            </Headerdiv>
-        </StyledHeader>
-    )
+  return (
+    <StyledHeader>
+      <Headerdiv>
+        <Logo>
+          <NavLink to="/" style={{ color: "white", textDecoration: "none" }}>
+            LOGO
+          </NavLink>
+        </Logo>
+        <Menu>
+          {menus.map((menu, index) => {
+            return (
+              <NavLink
+                exact
+                style={{ color: "white", textDecoration: "none", margin: "auto 20px auto 0" }}
+                to={menu.path}
+                key={index}
+                activeStyle={{ color: "black" }}
+              >
+                <HeaderItem menu={menu} />
+              </NavLink>
+            );
+          })}
+        </Menu>
+      </Headerdiv>
+    </StyledHeader>
+  );
 }
 
-export default Header
+export default Header;

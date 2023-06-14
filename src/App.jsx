@@ -26,10 +26,9 @@ const Content = styled.div`
   justify-content: space-between;
   align-items: center;
   text-align: center;
-  margin: auto;
   width: 100%;
   max-width: 1100px;
-  margin: 0 auto ;
+  margin: ${config.HeaderHeight} auto ;
   height: auto;
   min-height: calc(100vh - ${config.HeaderHeight});
 `
