@@ -56,17 +56,12 @@ const Banner = styled.div`
   background-position: center;
   background-repeat: no-repeat;
   margin: auto;
+  margin-bottom: 20px;
   background-image: url(${sampleimg});
   display: flex;
   flex-direction: column;
   position: relative;
   
-`
-
-const BoardContent = styled.div`
-  width: 50%;
-  padding: 20px;
-  text-align: left;
 `
 
 const MainContent = styled.div`
@@ -75,12 +70,63 @@ const MainContent = styled.div`
   flex-direction: row;
 `
 
+const SubContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`
+
+const MainBoardContent = styled.div`
+  width: 70%;
+  margin: 3px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+`
+
+const BestContent = styled.div`
+  width: 30%;
+  margin: 3px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+`
+
+const SubBoardContent = styled.div`
+  display: flex;
+  width: 100%;
+  margin: 3px;
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left;
+`
+
+const SideMenuBar = styled.div`
+  flex-direction: column;
+  width: 15%;
+  padding: 0 20px 0 0;
+  height: 100%;
+`
+
+const InnerSubBoardContent = styled.div`
+  width: 100%;
+  margin-left:auto;
+`
+
+const SubMenu = styled.button`
+  width: 100%;
+  font-size: 18px;
+  margin: auto;
+  margin-bottom: 10px;
+  background-color: #fff;
+  cursor: pointer;
+`
+
 const BoardItem = styled.div`
   margin-bottom: 10px;
   padding: 10px;
   height: fit-content;
-  background-color: #000;
-  color: white;
+  background-color: #f0f0f0;
   border-radius: 5px;
   cursor: pointer;
 `
@@ -116,24 +162,42 @@ const Main = () => {
           <Button onClick={handleMoveBoardClick}>게시판으로</Button>
         </Inner>
       </Banner>
+
       <MainContent>
-        <BoardContent>
+        <MainBoardContent>
           <SubTitle>자유게시판</SubTitle>
           {data.map(board => (
             <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
               <div>{board.title}</div>
             </BoardItem>
           ))}
-        </BoardContent>
-        <BoardContent>
-          <SubTitle>틀딱집합소</SubTitle>
+        </MainBoardContent>
+        <BestContent>
+          <SubTitle>틀딱 게시판</SubTitle>
           {data.map(board => (
             <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
               <div>{board.title}</div>
             </BoardItem>
           ))}
-        </BoardContent>
+        </BestContent>
       </MainContent>
+
+      <SubContent>
+        <SubBoardContent>
+          <SideMenuBar>
+            <SubMenu onClick={handleMoveBoardClick}>자유 게시판</SubMenu>
+            <SubMenu onClick={handleMoveBoardClick}>틀니 게시판</SubMenu>
+            <SubMenu onClick={handleMoveBoardClick}>정보 게시판</SubMenu>
+          </SideMenuBar>
+          <InnerSubBoardContent>
+            {data.map(board => (
+              <BoardItem key={board.id} onClick={() => handleBoardItemClick(board.id)}>
+                <div>{board.title}</div>
+              </BoardItem>
+            ))}
+          </InnerSubBoardContent>
+        </SubBoardContent>
+      </SubContent>
     </BodyContent>
   );
 };

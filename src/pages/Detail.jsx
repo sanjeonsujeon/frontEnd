@@ -90,9 +90,9 @@ const Detail = () => {
       console.log('Detail/handleDeleteBtnClick/response: ', response);
       if (response.status === 204) {
         alert("게시글 삭제 완료!");
-        navigate("/board", {});
+        return navigate("/board", {});
       } else {
-        alert("게시글 삭제 실패!");
+        return alert("게시글 삭제 실패!");
       }
     } else {
       return;
