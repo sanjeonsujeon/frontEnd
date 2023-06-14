@@ -32,39 +32,71 @@ const BoardTitle = styled.h3`
 `
 
 const CreateButton = styled.button`
-display: inline-block;
-margin-right: 10px;
-padding: 10px 20px;
-background-color: #f0f0f0;
-color: #333;
-border: none;
-border-radius: 5px;
-cursor: pointer;
-transition: background-color 0.3s ease;
+  display: inline-block;
+  margin-right: 10px;
+  padding: 10px 20px;
+  background-color: #f0f0f0;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 
-&:hover {
-  background-color: #ccc;
-}
+  &:hover {
+    background-color: #ccc;
+  }
 `
 const Pagenum = styled.div`
   width: 600px;
-  height: 100Px;
+  height: 100px;
   margin: auto;
+`
+
+const PageButton = styled.button`
+  display: inline-block;
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: ${props => (props.isActive ? '#ccc' : '#f0f0f0')};
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 `
 
 const Board = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  const [totalIds, setTotalIds] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+
+  useEffect(() => {
+    console.log(totalIds);
+  }, [totalIds]);
+
+  useEffect(() => {
+    const getTotalIds = async () => {
+      let response = await axios.get("/api/total-ids");
+      const data = parseInt(response.headers.totalcount, 10);
+      console.log(data);
+      setTotalIds = data||0;
+    };
+    getTotalIds();
+  }, []);
+
+  useEffect(() => {
+    setCurrentPage(0);
+  }, []);
 
   useEffect(() => {
     const getBoardList = async () => {
       console.log('getBoardList()');
-      let response = await axios.get("/api/board-list");
+      let response = await axios.get(`/api/board-list?pageNumber=${currentPage}`);
       console.log('main/response: ', response);
       setData(response.data.data || []);
     };
     getBoardList();
-  }, []);
+  }, [currentPage]);
 
   const handleCreateBoardClick = () => {
     navigate('/createpost');
@@ -74,8 +106,15 @@ const Board = () => {
     navigate(`/detail/${id}`);
   };
 
-  const HandleFirstBoardClick = () =>{
-    navigate(`/board`);
+  const handlePageButtonClick = async (pageNumber) => {
+    setCurrentPage(pageNumber);
+  
+    try {
+      const response = await axios.get(`/api/board-list?pageNumber=${pageNumber}`);
+      setData(response.data.data || []);
+    } catch (error) {
+      console.log('Error occurred:', error);
+    }
   }
 
   return (
@@ -90,8 +129,15 @@ const Board = () => {
         </BoardItem>
       ))}
       <Pagenum>
-        {/* 이곳에 게시판 페이지 번호 들어갑니다.*/}
-        <CreateButton size="small" onClick={HandleFirstBoardClick}>1</CreateButton>
+        {Array.from(Array(Math.ceil(totalIds / 10)).keys()).map((pageNumber) => (
+          <PageButton
+            key={pageNumber}
+            isActive={pageNumber === currentPage}
+            onClick={() => handlePageButtonClick(pageNumber)}
+          >
+            {pageNumber + 1}
+          </PageButton>
+        ))}
       </Pagenum>
     </Container>
   );

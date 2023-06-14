@@ -134,16 +134,17 @@ const BoardItem = styled.div`
 const Main = () => {
   const navigate = useNavigate();
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
 
   useEffect(() => {
     const getBoardList = async () => {
       console.log('getBoardList()');
-      let response = await axios.get("/api/board-list");
+      let response = await axios.get(`/api/board-list?pageNumber=${currentPage}`);
       console.log('main/response: ', response);
       setData(response.data.data || []);
     };
     getBoardList();
-  }, []);
+  }, [currentPage]);
 
   const handleMoveBoardClick = () => {
     navigate(`/board`);
