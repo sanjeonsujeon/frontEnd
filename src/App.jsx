@@ -9,14 +9,8 @@ import SignUp from './pages/SignUp';
 import NotFound from './pages/NotFound';
 import Board from "./pages/Board";
 import CreatePost from "./pages/CreatePost";
-import GraduateCreatePost from "./pages/GraduateCreatePost";
-import InfoCreatePost from "./pages/InfoCreatePost";
 import BoardDetail from "./pages/Detail";
-import GraduateDetail from "./pages/GraduateDetail";
-import InfoBoardDetail from "./pages/InfoDetail"
 import UpdatePost from "./pages/UpdatePost";
-import GraduateUpdatePost from "./pages/GraduateUpdatePost";
-import InfoUpdatePost from "./pages/InfoUpdatePost"
 import Dev from "./pages/Dev";
 import config from "./config";
 
@@ -59,16 +53,10 @@ function App() {
               <Route path="/" element={<Main />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<SignUp />} />
-              <Route path="/board/:id/" element={<Board />} />
+              <Route path="/board" element={<Board />} />
               <Route path="/detail/:id" element={<BoardDetail />} />
-              <Route path="/graduatedetail/:id" element={<GraduateDetail />} />
-              <Route path="/infodetail/:id" element={<InfoBoardDetail />} />
               <Route path="/updatepost" element={<UpdatePost />} />
-              <Route path="/graduateupdatepost" element={<GraduateUpdatePost />} />
-              <Route path="/infoupdatepost" element={<InfoUpdatePost />} />
               <Route path="/createpost" element={<CreatePost />} />
-              <Route path="/graduatecreatepost" element={<GraduateCreatePost />} />
-              <Route path="/infocreatepost" element={<InfoCreatePost />} />
               <Route path="/dev" element={<Dev />} />
               <Route path="*" element={<NotFound />} />
             </Routes>

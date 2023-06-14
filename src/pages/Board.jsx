@@ -93,13 +93,8 @@ const Board = () => {
     const getBoardList = async () => {
       let response;
       // 게시판에 따라 다른 API 호출
-      if (window.location.pathname === "/board/1") {
-        response = await axios.get(`/api/board-list?pageNumber=${currentPage}`);
-      } else if (window.location.pathname === "/board/2") {
-        response = await axios.get("/api/graduateboard-list");
-      } else if (window.location.pathname === "/board/3") {
-        response = await axios.get("/api/infoboard-list");
-      } 
+      ///api/board-list?boardNumber=${보드넘버}&pageNumber=${currentPage}
+      response = await axios.get(`/api/board-list?pageNumber=${currentPage}`);
       setData(response.data.data || []);
     };
     getBoardList();
