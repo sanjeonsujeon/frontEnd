@@ -62,7 +62,7 @@ const Button = styled.input`
   }
 `
 
-const UpdatePost = () => {
+const GraduateUpdatePost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const location = useLocation();
@@ -85,7 +85,7 @@ const UpdatePost = () => {
     }
 
     if (title.length > 30) {
-      alert("제목은 30글자 이하여야 합니다.");
+      alert("제목은 30 이하여야 합니다.");
       return;
     }    
     if (content.length > 8000) {
@@ -98,12 +98,12 @@ const UpdatePost = () => {
     const requestData = { id, title, content };
     console.log('requestData: ', requestData);
     try {
-      const response = await axios.put('/api/update-board', requestData);
+      const response = await axios.put('/api/graduateupdate-board', requestData);
       console.log('writeBoard/response: ', response);
       console.log('writeBoard/response.status: ', response.status);
       setTitle(""); // 제목 초기화
       setContent(""); // 내용 초기화
-      navigate(`/detail/${id}`); // 수정 후 상세 페이지로 이동
+      navigate(`/graduatedetail/${id}`); // 수정 후 상세 페이지로 이동
     } catch (err) {
       console.log('CreateBoard/handleInput/err: ', err);
       resetInput();
@@ -142,4 +142,4 @@ const UpdatePost = () => {
   );
 };
 
-export default UpdatePost;
+export default GraduateUpdatePost;

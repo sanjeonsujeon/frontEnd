@@ -59,7 +59,7 @@ const Button = styled.input`
   }
 `
 
-const CreatePost = () => {
+const InfoCreatePost = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const navigate = useNavigate();
@@ -71,7 +71,7 @@ const CreatePost = () => {
     }
 
     if (title.length > 30) {
-      alert("제목은 30글자 이하여야 합니다.");
+      alert("제목은 30 이하여야 합니다.");
       return;
     }    
     if (content.length > 8000) {
@@ -83,7 +83,7 @@ const CreatePost = () => {
 
     try {
       console.log("Registration Data:", requestData);
-      const response = await axios.post('/api/create-board', requestData);
+      const response = await axios.post('/api/infocreate-board', requestData);
       console.log('writeBoard/response: ', response);
       console.log('writeBoard/response.status: ', response.status);
 
@@ -93,7 +93,7 @@ const CreatePost = () => {
         alert("게시글 생성이 정상적으로 되지 않았습니다.");
       }
 
-      navigate("/board");
+      navigate("/infoboard");
     } catch (error) {
       console.log('CreateBoard/handleInput/err: ', error);
     }
@@ -136,4 +136,4 @@ const CreatePost = () => {
   );
 };
 
-export default CreatePost;
+export default InfoCreatePost;

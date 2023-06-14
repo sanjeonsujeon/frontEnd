@@ -8,10 +8,14 @@ const Container = styled.div`
   margin: 0 auto;
 `
 
-const ButtonContainer = styled.div`
-  margin: auto;
+const HeadContainer = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const ButtonContainer = styled.div`
+  margin-left: auto;
 `
 
 const BoardItem = styled.div`
@@ -20,6 +24,7 @@ const BoardItem = styled.div`
   height: fit-content;
   background-color: #f0f0f0;
   border-radius: 5px;
+  cursor: pointer;
 `
 
 const Title = styled.h1`
@@ -42,7 +47,6 @@ const LinkButton = styled(Link)`
   padding: 10px 20px;
   background-color: #f0f0f0;
   color: #333;
-  border: none;
   text-decoration: none;
   border-radius: 5px;
   transition: background-color 0.3s ease;
@@ -67,7 +71,7 @@ const DeleteButton = styled(Link)`
   }
 `
 
-const Detail = () => {
+const InfoDetail = () => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const navigate = useNavigate();
@@ -79,14 +83,14 @@ const Detail = () => {
       const request_data = { id: id };
       let response = await axios({
         method: 'delete',
-        url: '/api/delete-board',
+        url: '/api/infodelete-board',
         headers: { 'Content-Type': 'application/json' },
         data: JSON.stringify(request_data)
       });
       console.log('Detail/handleDeleteBtnClick/response: ', response);
       if (response.status === 204) {
         alert("게시글 삭제 완료!");
-        return navigate("/board", {});
+        return navigate("/infoboard", {});
       } else {
         return alert("게시글 삭제 실패!");
       }
@@ -97,7 +101,7 @@ const Detail = () => {
 
   useEffect(() => {
     const getDetailBoard = async () => {
-      let response = await axios.get(`/api/board-detail/${id}`);
+      let response = await axios.get(`/api/infoboard-detail/${id}`);
       console.log('Detail/response: ', response);
       console.log('Detail/response.data: ', response.data);
       console.log('Detail/response.data.data: ', response.data.data);
@@ -109,12 +113,14 @@ const Detail = () => {
 
   return (
     <Container>
+      <HeadContainer>
+        <Title>{title}</Title>
         <ButtonContainer>
-          <LinkButton to={`/updatepost`} state={{ id: id, title: title, content: content }}>수정</LinkButton>
-          <DeleteButton to="/board" onClick={handleDeleteBtnClick}>삭제</DeleteButton>
-          <LinkButton to={"/board"} state={{}}>목록 보기</LinkButton>
+          <LinkButton to={`/infoupdatepost`} state={{ id: id, title: title, content: content }}>수정</LinkButton>
+          <DeleteButton to="/infoboard" onClick={handleDeleteBtnClick}>삭제</DeleteButton>
+          <LinkButton to={"/infoboard"} state={{}}>목록 보기</LinkButton>
         </ButtonContainer>
-      <Title>{title}</Title>
+      </HeadContainer>
       <BoardItem>
         <Content>{content}</Content>
       </BoardItem>
@@ -122,4 +128,4 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default InfoDetail;
